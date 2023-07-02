@@ -62,11 +62,22 @@
                     </div>
 
                     <div class="container main-projects grid">
-                        <div class="main-projects1">
+                        <div class="slideshow-container main-projects1">
+
+                            <div class="text">
+                                <span>
+                                    Photographer
+                                </span>
+                            </div>
+
 
                         </div>
                         <div class="main-projects2">
-
+                            <div class="text">
+                                <span>
+                                    Web developer
+                                </span>
+                            </div>
                         </div>
                     </div>
 
@@ -75,7 +86,7 @@
                 <!-- about section -->
                 <section class="section-about section container grid" id="about">
                     <div class="section-about-left">
-                        <h3>Web developper</h3>
+                        <h3>Photographer - Web developper</h3>
                         <h2 class="section-about-title"> About me</h2>
                         <img
                             src="https://jealife-portfolio.vercel.app/assets/images/JEaLiFe%C2%B7.jpg"
@@ -119,74 +130,84 @@
                     </div>
 
                     <div id="portfolio" class="portfolio">
-                            <div id="btnFilter">
-                                <button class="btn active"
-                                    onclick="filterSelection('all')"> All</button>
-                                <button class="btn"
-                                    onclick="filterSelection('pictures')">
-                                    Pictures</button>
-                                <button class="btn"
-                                    onclick="filterSelection('website')"> Web
-                                    site</button>
+                        <div id="btnFilter">
+                            <button class="btn active"
+                                onclick="filterSelection('all')"> All</button>
+                            <button class="btn"
+                                onclick="filterSelection('pictures')">
+                                Pictures</button>
+                            <button class="btn"
+                                onclick="filterSelection('website')"> Web
+                                site</button>
+                        </div>
+
+                        <div class="container">
+                            <div class="filter pictures">
+                                <img src="assets/images/skooter Marrakech.jpg"
+                                    alt>
+                                <div class="link-portfolio">
+                                    <a
+                                        href="assets/images/skooter Marrakech.jpg"
+                                        target="_blank">Quad Marrakech</a>
+                                </div>
                             </div>
-                           
-                            <div class="container">
-                                <div class="filter pictures">
-                                    <img src="assets/images/skooter Marrakech.jpg" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="assets/images/skooter Marrakech.jpg"  target="_blank">Quad Marrakech</a>
-                                    </div>
+                            <div class="filter pictures">
+                                <img src="assets/images/JEALIFE_Pictures.jpg"
+                                    alt>
+                                <div class="link-portfolio">
+                                    <a href="assets/images/JEALIFE_Pictures.jpg"
+                                        target="_blank">JEALIFE Pictures</a>
                                 </div>
-                                <div class="filter pictures">
-                                    <img src="assets/images/JEALIFE_Pictures.jpg" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="assets/images/JEALIFE_Pictures.jpg"  target="_blank">JEALIFE Pictures</a>
-                                    </div>
-                                </div>
-                                <div class="filter website">
-                                    
-                                    <img src="assets/images/tiremt.png" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="https://tirem-t.vercel.app/"  target="_blank"> TiremT</a>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="filter website">
 
-
-                                
-
-                                <div class="filter website">
-                                    <img src="assets/images/Jealife Portfolio.png" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="https://jea-portfolio.vercel.app/"  target="_blank"> JEaLiFe</a>
-                                    </div>
+                                <img src="assets/images/tiremt.png" alt>
+                                <div class="link-portfolio">
+                                    <a href="https://tirem-t.vercel.app/"
+                                        target="_blank"> TiremT</a>
                                 </div>
-                                <div class="filter pictures">
-                                    <img src="assets/images/girl.jpg" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="assets/images/girl.jpg"  target="_blank">Girl</a>
-                                    </div>
+                            </div>
+
+                            <div class="filter website">
+                                <img src="assets/images/Jealife Portfolio.png"
+                                    alt>
+                                <div class="link-portfolio">
+                                    <a href="https://jea-portfolio.vercel.app/"
+                                        target="_blank"> JEaLiFe</a>
                                 </div>
-                                <div class="filter website">
-                                    <img src="assets/images/Flexfit.png" alt="">
-                                    <div class="link-portfolio">
-                                        <a href="https://flex-fit-tau.vercel.app/"  target="_blank"> FlexFit</a>
-                                    </div>
+                            </div>
+                            <div class="filter pictures">
+                                <img src="assets/images/girl.jpg" alt>
+                                <div class="link-portfolio">
+                                    <a href="assets/images/girl.jpg"
+                                        target="_blank">Girl</a>
+                                </div>
+                            </div>
+                            <div class="filter website">
+                                <img src="assets/images/Flexfit.png" alt>
+                                <div class="link-portfolio">
+                                    <a href="https://flex-fit-tau.vercel.app/"
+                                        target="_blank"> FlexFit</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </section>
-                   <!-- contact section -->
-                <section class="section-contact">
+                <!-- contact section -->
+                <section class="section-contact section container">
                     <div class="contact-information">
-                        
+
                     </div>
 
-                    <form action="https://getform.io/f/68f68a45-9882-47da-a9af-6d71d6234021" method="POST">
+                    <form
+                        action="https://getform.io/f/68f68a45-9882-47da-a9af-6d71d6234021"
+                        method="POST">
                         <input type="text" name="name">
                         <input type="email" name="email">
                         <input type="text" name="message">
                         <!-- add hidden Honeypot input to prevent spams -->
-                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <input type="hidden" name="_gotcha"
+                            style="display:none !important">
                         <button type="submit">Send</button>
                     </form>
                 </section>
@@ -235,6 +256,12 @@
         this.className += " active";
       });
     }
+
+
+
+
+    /// slideshow
+    
     </script>
 
             <!-- <script src="assets/js/main.js"></script> -->

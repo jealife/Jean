@@ -1,9 +1,9 @@
 /* about */
 @media (max-width: 980px) {
-    :root{
-        
-    --biggest-font-size: 1.80rem;
+    .section--big-title {
+        font-size: 1.80rem;
     }
+
     .section-about {
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
@@ -22,14 +22,17 @@
 
         padding: 4.25rem 0;
     }
-    .header{
+
+    .header {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .main-projects{
+
+    .main-projects {
         grid-template-columns: repeat(1, 1fr);
     }
+
     .nav {
         position: fixed;
         top: 0;
@@ -40,23 +43,37 @@
         justify-content: center;
         align-items: center;
     }
+
     .container-dark {
         /* margin-top: .5rem; */
         /* max-width: 968px; */
         width: 100%;
-        padding: 3rem .58rem ;
+        padding: 3rem .58rem;
         border-radius: 1em;
-    
+
     }
+
     .section-about-left img {
         width: 190px;
     }
-    .main-projects1,.main-projects2{
+
+    .main-projects1,
+    .main-projects2 {
         height: 200px;
     }
-    .section-about{
+
+    .section-about {
         margin-top: 2rem;
     }
-    
-    
+
+    .filter {
+        width: 312px;
+        height: 220px;
+    }
+
+    .filter img {
+        height: 100%;
+    }
+
+
 }
