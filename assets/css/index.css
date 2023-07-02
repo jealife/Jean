@@ -180,6 +180,7 @@
 
   .section-about-right p {
       font-size: 1.25rem;
+      color: var(--muted);
 
   }
 

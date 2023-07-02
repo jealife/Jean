@@ -1,5 +1,9 @@
 /* about */
 @media (max-width: 980px) {
+    :root{
+        
+    --biggest-font-size: 1.80rem;
+    }
     .section-about {
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
@@ -19,7 +23,9 @@
         padding: 4.25rem 0;
     }
     .header{
-        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .main-projects{
         grid-template-columns: repeat(1, 1fr);
@@ -29,7 +35,7 @@
         top: 0;
         width: 100%;
         border-radius: 0;
-        height: 55px;
+        height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -40,7 +46,6 @@
         width: 100%;
         padding: 3rem .58rem ;
         border-radius: 1em;
-        background-color: var(--container-dark-color);
     
     }
     .main-projects1,.main-projects2{
@@ -49,4 +54,5 @@
     .section-about{
         margin-top: 2rem;
     }
+    
 }
