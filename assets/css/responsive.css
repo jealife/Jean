@@ -18,20 +18,10 @@
 
         padding: 4.25rem 0.25rem;
     }
-    .nav {
-        position: absolute;
-        bottom: 1rem;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
     .header{
         position: absolute;
     }
     .main-projects{
         grid-template-columns: repeat(1, 1fr);
-    }
-    .container{
-        
     }
 }
