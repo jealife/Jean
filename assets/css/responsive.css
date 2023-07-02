@@ -11,12 +11,12 @@
     }
 
     .section-about-right p {
-        text-align: justify;
+        text-align: center;
     }
 
     main {
 
-        padding: 4.25rem 0.25rem;
+        padding: 4.25rem 0;
     }
     .header{
         position: absolute;
