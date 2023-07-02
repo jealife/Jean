@@ -1,0 +1,216 @@
+  /* header & nav  */
+
+  .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: var(--z-fixed);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .nav {
+      position: fixed;
+      top: .5rem;
+      border-radius: var(--container-border-radius);
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--nav-color);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+  }
+
+  .nav-menu {
+      width: 100%;
+      padding: 1rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 2rem;
+  }
+
+  .nav-logo {
+      color: var(--vibrant);
+      font-size: 24px;
+  }
+
+  .nav-link {
+      transition: all .4s;
+  }
+
+  .nav-link:hover {
+      color: var(--vibrant);
+  }
+
+
+
+
+  /* Section hero  */
+  .section-hero {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+  }
+
+  .section-hero-top {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+  }
+
+  .section-hero-top .button {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      transition: .4s;
+      justify-self: center;
+      padding: .85rem .2rem .85rem 1rem;
+  }
+
+  .section-hero-top .button i {
+      font-size: 1.2rem;
+      visibility: hidden;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+  }
+
+  .section-hero-top .button:hover {
+      transition: .5s;
+      gap: 0.2rem;
+      padding: .85rem 1.25rem;
+      box-shadow: #f86f20cc 0px 5px 60px 5px;
+  }
+
+  .section-hero-top .button:hover i {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(.55rem);
+  }
+
+  .main-projects {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 100%;
+      align-items: center;
+  }
+
+  .main-projects1 {
+      background-color: var(--nav-color);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      background-image: url(https://unsplash.it/1500);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 222px;
+  }
+
+  .main-projects2 {
+      background-color: var(--nav-color);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      background-image: url(https://unsplash.it/1400);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 222px;
+  }
+
+
+  /* section about */
+  .section-about {
+      width: 100%;
+      min-height: 86vh;
+      min-height: 86dvh;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+  }
+
+  .section-about-left h3 {
+      font-size: var(--smaller-font-size);
+      color: var(--muted);
+      font-weight: 300;
+
+  }
+
+  .section-about-title {
+      color: var(--muted);
+      font-weight: var(--font-medium);
+      margin-bottom: 4.25rem;
+  }
+
+  .section-about-left img {
+      margin-bottom: 2rem;
+      width: 160px;
+      clip-path: circle();
+  }
+
+  .skills {
+      padding: .25rem 0;
+      display: flex;
+      gap: 25px;
+  }
+
+  .skills i {
+      font-size: 35px;
+      color: var(--muted);
+      border-radius: 4px;
+      box-shadow: #c4c3c3b6 9px 9px 15px, #ececec -9px -9px 15px;
+  }
+
+  .section-about-right {
+      padding: 2.25rem 0;
+  }
+
+  .section-about-right p {
+      font-size: 1.25rem;
+
+  }
+
+
+  /* section work  */
+
+  .section-work {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+
+  }
+
+  .section-work-top {
+      flex: 1px;
+      text-align: center;
+  }
+
+  .portfolio {
+      width: 100%;
+      max-width: 982px;
+  }
+
+  .projects {
+      background-color: var(--nav-color);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      background-image: url(https://unsplash.it/1300);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 320px;
+      width: 100%;
+  }

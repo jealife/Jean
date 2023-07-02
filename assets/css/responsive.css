@@ -1,0 +1,14 @@
+/* about */
+@media (max-width: 991.98px){
+    .section-about{
+        grid-template-columns: repeat(1,1fr);
+        text-align: center;
+    }
+    .section-about-left{
+        display: grid;
+        place-items: center;
+    }
+    .section-about-right p{
+        text-align: justify;
+    }
+}
