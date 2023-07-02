@@ -158,7 +158,7 @@
       margin-bottom: 2rem;
       width: 160px;
       clip-path: circle();
-      box-shadow: #c4c3c3b6 15px 15px 15px, #ececec -15px -15px 15px;
+      box-shadow: #9c9a9ab6 15px 15px 15px, #ececec -15px -15px 15px;
   }
 
   .skills {
@@ -244,6 +244,7 @@
     cursor: pointer;
     background-color: transparent;
     transition: .3s;
+    color: var(--muted);
   }
   
   .btn:hover {
