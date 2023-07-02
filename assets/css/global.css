@@ -9,7 +9,7 @@
     --font-poppins: 'Poppins', sans-serif;
 
     /* font sizes */
-    --biggest-font-size: 2.5rem;
+    --biggest-font-size: 4.2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1rem;
     --normal: .938rem;
@@ -75,15 +75,18 @@
 
     font-family: var(--font-poppins);
 }
-html{
+
+html {
     scroll-behavior: smooth;
 
 }
+
 body {
     scroll-behavior: smooth;
     background-color: var(--bg-color);
     color: var(--text-bg-light-color);
 }
+
 body::-webkit-scrollbar {
     width: 0.4rem;
     background-color: var(--bg-color);
@@ -98,7 +101,8 @@ body::-webkit-scrollbar-thumb {
 a {
     text-decoration: none;
 }
-img{
+
+img {
     width: 200px;
     object-fit: cover;
 }
