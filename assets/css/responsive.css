@@ -24,4 +24,23 @@
     .main-projects{
         grid-template-columns: repeat(1, 1fr);
     }
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        border-radius: 0;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-dark {
+        /* margin-top: 4.5rem; */
+        /* max-width: 968px; */
+        width: 100%;
+        padding: 3rem .58rem ;
+        border-radius: 45px;
+        background-color: var(--container-dark-color);
+    
+    }
 }
