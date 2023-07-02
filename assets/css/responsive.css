@@ -35,12 +35,18 @@
         align-items: center;
     }
     .container-dark {
-        /* margin-top: 4.5rem; */
+        /* margin-top: .5rem; */
         /* max-width: 968px; */
         width: 100%;
         padding: 3rem .58rem ;
-        border-radius: 45px;
+        border-radius: 1em;
         background-color: var(--container-dark-color);
     
+    }
+    .main-projects1,.main-projects2{
+        height: 200px;
+    }
+    .section-about{
+        margin-top: 2rem;
     }
 }
