@@ -47,16 +47,10 @@
     color: var(--vibrant);
   }
 
-  /* slide show */
 
-  
-  .mySlides {
-    display: none;
+  .dot {
+    color: var(--vibrant);
   }
-
-
-
-  /* Slideshow container */
 
 
   /* Caption text */
@@ -75,7 +69,8 @@
     background: #141414;
     background: linear-gradient(0deg, #141414f2 0%, #2d2a2a00 100%);
   }
-  .text span{
+
+  .text span {
     font-size: 1.23rem;
     color: var(--title-bg-dark-color);
   }
@@ -156,14 +151,14 @@
     position: relative;
     display: grid;
     place-content: center;
-      background-color: var(--nav-color);
-      border-radius: 1.25rem;
-      padding: 1.25rem;
-      background-image: url("/assets/images/JEALIFE_Pictures.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
+    background-color: var(--nav-color);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    background-image: url("/assets/images/JEALIFE_Pictures.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
   }
 
   .main-projects2 {
@@ -182,7 +177,7 @@
   }
 
 
-  /* section about */
+  /* ----------------    --- SECTION ABOUT---   ----------------- */
   .section-about {
     width: 100%;
     min-height: 86vh;
@@ -346,4 +341,39 @@
 
   .link-portfolio a:hover {
     color: var(--vibrant-light);
+  }
+
+  /* -------------         ---     SECTION CONTACT   --- --------------- */
+
+  .section-contact {
+    width: 100%;
+    min-height: 86vh;
+    min-height: 86dvh;
+    display: flex;
+    align-items: center;
+  }
+  .section-contact form{
+    flex: 1;
+    outline: #e2e2e2 solid 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 1.25rem 2rem;
+    border-radius: 1.89rem;
+    background-color: var(--bg-color);    
+    box-shadow: #9c9a9ab6 15px 15px 15px, #ececec -15px -15px 15px;
+  }
+  .contact-information{
+    flex: 1;
+  }
+  .contact-information h3 {
+    font-size: var(--smaller-font-size);
+    color: var(--muted);
+    font-weight: 300;
+
+  }
+  .contact-information img {
+    margin-bottom: 2rem;
+    border-radius: 1.55rem;
+    box-shadow: #9c9a9ab6 15px 15px 15px, #fffffff1 -15px -15px 15px;
   }

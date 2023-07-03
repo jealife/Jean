@@ -74,6 +74,9 @@
     .filter img {
         height: 100%;
     }
-
+    .section-contact{
+        flex-direction: column;
+        gap: 30px;
+    }
 
 }
