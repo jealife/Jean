@@ -438,7 +438,7 @@
     border-radius: .5rem;
     color: var(--muted);
     background-color: var(--bg-color);
-    box-shadow: #c4c3c3b6 9px 9px 15px, #ececec -9px -9px 15px;
+    box-shadow: #c4c3c361 9px 9px 15px, #ececec -9px -9px 15px;
 
   }
 
