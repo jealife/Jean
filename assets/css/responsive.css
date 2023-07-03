@@ -1,20 +1,24 @@
 /* about */
 @media (max-width: 980px) {
-    .container-dark{
+    .container-dark {
         max-width: 100%;
     }
+
     .section--big-title {
         font-size: 1.80rem;
     }
-    .section-hero-top .button{
+
+    .section-hero-top .button {
         margin-bottom: 2rem;
     }
+
     .section-about {
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
     }
 
-    .section-about-left,.section-contact {
+    .section-about-left,
+    .section-contact {
         text-align: center;
         display: grid;
         place-items: center;
@@ -72,6 +76,11 @@
         margin-top: 2rem;
     }
 
+    .section-about-right p {
+        font-size: 1.12rem;
+
+    }
+
     .filter {
         width: 312px;
         height: 220px;
@@ -80,6 +89,7 @@
     .filter img {
         height: 100%;
     }
+
     /* .section-contact{
         flex-direction: column;
         gap: 50px;
@@ -88,33 +98,39 @@
         justify-content: space-around;
         margin-bottom: 2rem;
         padding: 0 2rem 0 2rem;
-      }
-      .contact-information{
+    }
+
+    .contact-information {
         padding: 0;
-      }
-      
+    }
+
     .section-contact form {
         font-size: 1.25rem;
         width: 100%;
         padding: 1.25rem 1rem;
     }
 
+    .nav-menu {
+        gap: .98rem;
+    }
+
 }
 
-@media (max-width: 600px){
-    .section-contact form{
+@media (max-width: 600px) {
+    .section-contact form {
         width: 100%;
     }
 }
-@media (min-width: 768px) and (max-width: 991.98px){
-    .section-contact{
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .section-contact {
         flex-direction: row;
         gap: 50px;
     }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px){
-    .section-contact{
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .section-contact {
         flex-direction: column;
         gap: 50px;
     }

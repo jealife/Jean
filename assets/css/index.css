@@ -30,7 +30,7 @@
     padding: 1rem 2.25rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 2rem;
   }
 
@@ -41,6 +41,11 @@
 
   .nav-link {
     transition: all .4s;
+    color: var(--muted);
+  }
+  .nav-link:nth-child(1){
+    
+    color: var(--vibrant);
   }
 
   .nav-link:hover {
@@ -388,7 +393,13 @@
     color: var(--muted);
     border-radius: 50px;
     padding: .25rem;
+    transition: .3s ease-in;
     box-shadow: #c4c3c3b6 9px 9px 15px, #ececec -9px -9px 15px;
+  }
+
+  .socials i:hover {
+    box-shadow: #e9e9e9 -9px -9px 15px;
+
   }
 
   .name,
@@ -402,6 +413,7 @@
   input[type=text],
   input[type=email],
   textarea {
+    font-size: 1.1rem;
     border: none;
     outline: #e2e2e2 solid 2px;
     padding: 0.5rem;
@@ -418,10 +430,11 @@
   }
 
   button[type=submit] {
+    font-size: 1.25rem;
     cursor: pointer;
     transition: .3s;
     border: none;
-    padding: .55rem .95rem;
+    padding: .55rem 1rem;
     border-radius: .5rem;
     color: var(--muted);
     background-color: var(--bg-color);
@@ -430,6 +443,6 @@
   }
 
   button[type=submit]:hover {
-    box-shadow:  #ececec -9px -9px 15px;
+    box-shadow: #ececec -9px -9px 15px;
     color: var(--title-bg-light-color);
   }
