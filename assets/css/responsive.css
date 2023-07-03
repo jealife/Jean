@@ -12,7 +12,8 @@
         text-align: center;
     }
 
-    .section-about-left {
+    .section-about-left,.section-contact {
+        text-align: center;
         display: grid;
         place-items: center;
     }
@@ -81,5 +82,8 @@
         flex-direction: column;
         gap: 30px;
     }
+    .socials {
+        justify-content: space-around;
+      }
 
 }
