@@ -93,7 +93,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 20px;
   }
 
   .section-hero-top .button {
