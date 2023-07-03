@@ -342,6 +342,7 @@
   }
 
   .section-contact form {
+    font-size: 1.25rem;
     text-align: left;
     width: 95%;
     flex: 1;
@@ -395,6 +396,7 @@
   .message {
     display: flex;
     flex-direction: column;
+    gap: 6px;
   }
 
   input[type=text],
@@ -405,6 +407,7 @@
     padding: 0.5rem;
     border-radius: .5rem;
     transition: .5s ease-in-out;
+    width: 100%;
   }
 
   input[type=text]:focus,
@@ -420,6 +423,7 @@
     border: none;
     padding: .55rem .95rem;
     border-radius: .5rem;
+    color: var(--muted);
     background-color: var(--bg-color);
     box-shadow: #c4c3c3b6 9px 9px 15px, #ececec -9px -9px 15px;
 
@@ -427,6 +431,5 @@
 
   button[type=submit]:hover {
     box-shadow:  #ececec -9px -9px 15px;
-    
-
+    color: var(--title-bg-light-color);
   }
