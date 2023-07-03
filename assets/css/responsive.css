@@ -6,7 +6,9 @@
     .section--big-title {
         font-size: 1.80rem;
     }
-
+    .section-hero-top .button{
+        margin-bottom: 2rem;
+    }
     .section-about {
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
@@ -80,10 +82,11 @@
     }
     .section-contact{
         flex-direction: column;
-        gap: 30px;
+        gap: 50px;
     }
     .socials {
         justify-content: space-around;
+        margin-bottom: 1rem;
       }
 
 }

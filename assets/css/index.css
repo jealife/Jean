@@ -75,20 +75,7 @@
     color: var(--title-bg-dark-color);
   }
 
-  /* The dots/bullets/indicators */
-
-
-  .active {
-    background-color: #717171;
-  }
-
-  /* Fading animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  /* end slideshow */
+  
 
   /* Section hero  */
   .section-hero {
@@ -140,11 +127,12 @@
 
   .main-projects {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 50px;
     width: 100%;
     align-items: center;
     height: 320px;
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .main-projects1 {
