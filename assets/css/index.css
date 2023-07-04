@@ -482,7 +482,7 @@
     border-radius: 50px;
     padding: .25rem;
     transition: .3s ease-in;
-    box-shadow: #000000 9px 9px 15px, #2c2c2c -9px -9px 15px;
+    box-shadow: #000000c5 9px 9px 15px, #2c2c2cd3 -9px -9px 15px;
   }
 
   .footer-container .socials i:hover {
