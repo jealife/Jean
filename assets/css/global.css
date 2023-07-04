@@ -150,6 +150,7 @@ main , footer{
 }
 footer{
     background-color: var(--muted-dark);
+    border-radius: var(--container-border-radius) var(--container-border-radius) 0 0 ;
 }
 .container {
     max-width: 968px;
