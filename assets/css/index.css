@@ -199,7 +199,10 @@
     clip-path: circle();
     box-shadow: #9c9a9ab6 15px 15px 15px, #ececec -15px -15px 15px;
   }
-
+  .content h2{
+    
+    color: var(--muted);
+  }
   .skills {
     padding: .25rem 0;
     display: flex;
@@ -222,6 +225,150 @@
     color: var(--muted);
 
   }
+  
+/* times line */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+.timeline {
+  color: #313e4f;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: var(--bg-color);
+  box-shadow: #9c9a9ab6 9px 9px 15px, #ececec -9px -9px 15px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 5px;
+}
+
+/* Container around content */
+.container-tilmeline {
+  padding: 10px 20px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container-tilmeline::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -11px;
+  border-radius: 100%;
+  background-color: var(--bg-color);
+  box-shadow: #9c9a9ab6 11px 11px 15px, #ececec -12px -12px 15px;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(148, 143, 143);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+  border-radius: 45px;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -13px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  border-radius: 20px;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  box-shadow: #9c9a9ab6 11px 11px 15px, #ececec -12px -12px 15px;
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+  .timeline::after {
+    left: 20px;
+  }
+
+  .content {
+    padding: 20px 18px;
+    border-radius: 10px;
+  }
+
+
+  .container-tilmeline {
+    width: 95%;
+    padding-left: 55px;
+    padding-right: 0px;
+  }
+
+
+
+  .container-tilmeline::before {
+    left: 50px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+
+  .left::after,
+  .right::after {
+    left: 8px;
+  }
+
+
+  .right {
+    left: 0%;
+  }
+}
 
 
   /* section work  */
