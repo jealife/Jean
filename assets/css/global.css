@@ -140,12 +140,17 @@ h3 {
     color: var(--text-bg-dark-color);
 }
 
-main {
+main , footer{
     display: grid;
     place-items: center;
     padding: 4rem 1rem;
 }
-
+.footer{
+    column-gap: 24px;
+}
+footer{
+    background-color: var(--muted-dark);
+}
 .container {
     max-width: 968px;
 }
