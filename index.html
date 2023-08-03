@@ -31,10 +31,14 @@
 <body>
     <header class="header">
         <nav class="nav n container">
+            <div class="nav-logo none"><i class='bx bx-code'></i></div>
+            <div class="menu-icon none">
+                <i class='bx bx-menu-alt-right showMenu'></i>
+            </div>
             <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <div class="nav-logo"><i class='bx bx-code'></i></div>
+                <a href="#home" class="nav-link">Accueil</a>
+                <a href="#about" class="nav-link">A propos</a>
+                <div class="nav-logo none"><i class='bx bx-code'></i></div>
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -47,11 +51,19 @@
         <section class="section section-hero container-dark " id="home">
             <div class="section-hero-top">
                 <h1 class="section--big-title">
-                    Pour des projets Unique<span class="dot">•</span>
-                    <br>Et originals
+                    Jean Guylane Memiaghe<span class="dot">•</span>
+                    <br>
+                    <div class="word line-1 anim-typewriter">
+                        <p>
+                            <a href="" class="typewrite" data-period="2000"
+                                data-type='[ "Developpeur Web.", "Photographe."]'>
+                                <span class="wrap"></span>
+                            </a>
+                    </div>
                 </h1>
                 <p class="text-bg-dark">
-                    Je suis Jean <br> Je vous invite à parcourir mes réalisations entre Développement web et photographie.
+                    Je suis Jean <br> Je vous invite à parcourir mes réalisations entre Développement web et
+                    photographie.
                 </p>
                 <a href="assets/CV.pdf" download class="button">
                     Download CV <i class='bx bx-cloud-download'></i>
@@ -59,24 +71,22 @@
             </div>
 
             <div class="container main-projects grid">
-
-                <div class="main-projects2">
+                <a href="" class="main-projects2">
                     <div class="text">
                         <span>
                             Projets Web
                         </span>
                     </div>
-                </div>
-                <div class="main-projects1">
+                </a>
+
+                <a href="" class="main-projects1">
 
                     <div class="text">
                         <span>
                             Photographies
                         </span>
                     </div>
-
-
-                </div>
+                </a>
             </div>
 
         </section>
@@ -101,13 +111,12 @@
             <div class="section-about-right">
                 <p>
                     Je suis Jean Guylane, développeur web et mobile avec 3 ans d'expérience et passionné de
-                    photographie. J'aime créer des interfaces interactives en utilisant HTML, CSS, JavaScript et les
-                    frameworks tels que React et Angular. Mon objectif est de combiner mes compétences en développement
+                    photographie. J'aime créer des interfaces interactives en utilisant HTML, CSS, JavaScript  Mon objectif est de combiner mes compétences en développement
                     et ma passion pour la photographie pour créer des projets uniques. Contactez-moi pour discuter de
                     collaborations passionnantes.
                 </p>
             </div>
-            
+
         </section>
 
         <section class="section">
@@ -118,20 +127,24 @@
                     </h2>
                     <div class="timeline">
                         <div class="container-tilmeline left" data-aos="zoom-in-left" data-aos-delay="300"
-                        data-aos-duration="800" data-aos-easing="ease-in-out">
-                          <div class="content" >
-                            <h2>2023</h2>
-                            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-                          </div>
+                            data-aos-duration="800" data-aos-easing="ease-in-out">
+                            <div class="content">
+                                <h2>Aout 2022- Mars 2023</h2>
+                                <p>Developpeur web et graphiste au seins de l'académie de formation TOTAC académie à
+                                    Casabalca au Maroc.</p>
+                            </div>
                         </div>
                         <div class="container-tilmeline right" data-aos="zoom-in-right" data-aos-delay="300"
-                        data-aos-duration="800" data-aos-easing="ease-in-out">
-                          <div class="content">
-                            <h2>2022</h2>
-                            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-                          </div>
+                            data-aos-duration="800" data-aos-easing="ease-in-out">
+                            <div class="content">
+                                <h2>Aout 2022-Septembre 2023</h2>
+                                <p>
+                                    Community manager et Photographe au sein du restaurant Bambou d'Afrique à Casabalca
+                                    au Maroc.
+                                </p>
+                            </div>
                         </div>
-                        <div class="container-tilmeline left" data-aos="zoom-in-left" data-aos-delay="300"
+                        <!-- <div class="container-tilmeline left" data-aos="zoom-in-left" data-aos-delay="300"
                         data-aos-duration="800" data-aos-easing="ease-in-out">
                             <div class="content" >
                               <h2>2023</h2>
@@ -145,9 +158,9 @@
                               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
                             </div>
                           </div>
-                        </div>
-                     </div>
-                      
+                        </div> -->
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -314,12 +327,69 @@
             });
         }
 
+        //
+        /* ****************Animation*********/
+        var TxtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
 
+        TxtType.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        }
 
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
     <!-- <script src="assets/js/main.js"></script> -->
 </body>

@@ -1,5 +1,5 @@
 /* about */
-@media (max-width: 980px) {
+@media (max-width: 700px) {
     .container-dark {
         max-width: 100%;
     }
@@ -120,6 +120,102 @@
     .section-contact form {
         width: 100%;
     }
+    .menu-dropdown--fade-in {
+        animation: fadeInAnimation ease-in-out .5s forwards;
+    
+    }
+    .menu-dropdown--fade-out {
+        animation: fadeInAnimation ease-in-out .5s forwards;
+    
+    }
+    
+    .hide {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        animation: fadeOutAnimation ease-in-out .5s forwards;
+    }
+    
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            width: 160px;
+        }
+    
+        100% {
+            opacity: 1;
+            visibility: visible;
+            width: 240px;
+        }
+    
+    }
+    
+    @keyframes fadeOutAnimation {
+        0% {
+            opacity: 1;
+            width: 240px;
+            visibility: visible;
+        }
+    
+        100% {
+            opacity: 0;
+            width: 160px;
+            visibility: hidden;
+        }
+    
+    }
+    .none {
+        display: none;
+    }
+
+    .menu-dropdown {
+        width: 240px;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: flex-start;
+        align-items: start;
+        padding: 15px;
+        top: 88px;
+        right: 16px;
+        position: absolute;
+        border: 8px;
+        border: 1px solid #a6b4c8de;
+        background-color: #ecf0f3a6;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        animation: fadeOutAnimation ease-in-out .5s forwards;
+
+    }
+
+    
+
+    .menu-dropdown {
+        width: 240px;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: flex-start;
+        top: 88px;
+        right: 16px;
+        position: absolute;
+        border: 8px;
+        border: 1px solid #a6b4c8de;
+        background-color: #ecf0f3a6;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        animation: fadeOutAnimation ease-in-out .5s forwards;
+
+    }
+
+    .menu-dropdown--fade-in {
+        animation: fadeInAnimation ease-in-out .5s forwards;
+
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
