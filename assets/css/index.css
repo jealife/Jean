@@ -275,6 +275,9 @@
     background-color: inherit;
     width: 50%;
   }
+  .container-tilmeline a{
+    color: var(--vibrant);
+  }
 
   /* The circles on the timeline */
   .container-tilmeline::after {
