@@ -3,350 +3,414 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta property="og:title" content=" Jean Guylane Memiaghe">
-    <!-- Meta description -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Guylane Memiaghe | Développeur Web & Mobile | Photographe</title>
+
+    <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Salut, je suis Jean Développeur web et mobile et designer graphiste. Je fais aussi de la photographie...">
-    <!-- mots clés -->
-    <meta name="keywords" content="jealife, HTML, CSS, JavaScript,JEaLife, Pictures">
-    <meta name="author" content="JEaLiFe">
-    <!-- rafraichissement de lapage -->
-    <!-- <meta http-equiv="refresh" content="3000"> -->
-    <metagh property="og:site_name" content="JEaLiFe Portfolio">
-        <meta property="og:type" content="website">
-        <!-- image mise en avant -->
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/83034287?v=4">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="assets/icons/code.png">
-        <title>Jean Guylane</title>
+        content="Jean Guylane Memiaghe - Développeur Web & Mobile passionné et Photographe professionnel. Création d'expériences numériques uniques et captures visuelles d'exception.">
+    <meta name="keywords"
+        content="Jean Guylane Memiaghe, jealife, développeur web gabon, photographe libreville, création site web, portfolio développeur, graphic designer gabon">
+    <meta name="author" content="Jean Guylane Memiaghe">
 
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/global.css">
-        <link rel="stylesheet" href="assets/css/index.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-        <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jea-life.vercel.app/">
+    <meta property="og:title" content="Jean Guylane Memiaghe | Portfolio">
+    <meta property="og:description" content="Découvrez l'univers de Jean Guylane Memiaghe, entre code et photographie.">
+    <meta property="og:image" content="https://jea-life.vercel.app/assets/jean_guylane_memiaghe.webp">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/code.png">
+
+    <!-- Fonts & Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="nav n container">
-            <div class="nav-logo none"><i class='bx bx-code'></i></div>
+    <header class="header bg-glass" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav-logo">
+                <i class='bx bx-code-alt'></i> Jean Guylane
+            </a>
 
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <div class="nav-logo"><i class='bx bx-code'></i></div>
-                <a href="#work" class="nav-link">Works</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À Propos</a></li>
+                <li><a href="#work" class="nav-link">Projets</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <!-- Close Button -->
+                <div class="nav-toggle" id="nav-close" style="position: absolute; top: 1.5rem; right: 1.5rem;">
+                    <i class='bx bx-x'></i>
+                </div>
+            </ul>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
             </div>
         </nav>
     </header>
 
     <main>
-
-        <!-- hero section  -->
-        <section class="section section-hero container-dark " id="home">
-            <div class="section-hero-top">
-                <h1 class="section--big-title">
-                    Jean Guylane Memiaghe<span class="dot">•</span>
-                    <br>
-                    <div class="word line-1 anim-typewriter">
-                        <p>
-                            <a href="" class="typewrite" data-period="2000"
-                                data-type='[ "Developpeur Web.","Graphic Designer.", "Photographe."]'>
-                                <span class="wrap"></span>
-                            </a>
-                    </div>
-                </h1>
-                <p class="text-bg-dark">
-                    Je suis Jean Guylane <br> Je vous invite à parcourir mes réalisations entre Développement web et
-                    photographie.
-                </p>
-                <a href="assets/CV.pdf" download class="button">
-                    Download CV <i class='bx bx-cloud-download'></i>
-                </a>
+        <!-- Hero Section -->
+        <section class="section-hero container" id="home">
+            <h3 class="hero-subtitle" data-aos="fade-up">Bienvenue dans mon univers</h3>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                Jean Guylane Memiaghe<br>
+                <span class="typewrite text-gradient" data-period="2000"
+                    data-type='["Développeur Web", "Graphic Designer", "Photographe"]'>
+                    <span class="wrap"></span>
+                </span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                Je façonne des expériences numériques modernes et capture des moments uniques à travers l'objectif.
+                Explorez mon travail alliant technique et créativité.
+            </p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+                <a href="#work" class="btn btn-primary">Voir mes projets</a>
+                <a href="assets/CV.pdf" download class="btn btn-outline">Télécharger CV <i
+                        class='bx bx-download'></i></a>
             </div>
 
-            <div class="container main-projects grid">
-                <a href="https://github.com/jealife" class="main-projects2">
-                    <div class="text">
-                        <span>
-                            Projets Web
-                        </span>
+            <div class="hero-projects-grid" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://github.com/jealife" target="_blank" class="hero-project-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1617900906639-cab7adceb499?auto=format&fit=crop&w=800&q=80');">
+                    <div class="hero-project-content">
+                        <span>Projets Web</span>
                     </div>
                 </a>
-
-                <a href="https://unsplash.com/fr/@jealife_pictures" class="main-projects1">
-
-                    <div class="text">
-                        <span>
-                            Photographies
-                        </span>
+                <a href="https://unsplash.com/fr/@jealife_pictures" target="_blank" class="hero-project-card"
+                    style="background-image: url('assets/images/JEALIFE_Pictures.jpg');">
+                    <div class="hero-project-content">
+                        <span>Photographies</span>
                     </div>
                 </a>
             </div>
-
         </section>
 
-        <!-- about section -->
-        <section class="section-about section container grid" id="about">
-            <div class="section-about-left">
-                <h3>Photographe -Dévéloppeur web</h3>
-                <h2 class="section-about-title"> A propos de moi</h2>
-                <img src="https://avatars.githubusercontent.com/u/83034287?v=4" alt="Jean Guylane Memiaghe">
-
-                <div class="skills ">
-                    <!-- skills -->
-                    <i class='bxl  bx-wordpress' title="Wordpress"></i>
-                    <i class='bxl  bx-next-js' title="Next JS"></i>
-                    <i class='bxl  bx-tailwind-css' title="Tailwind CSS"></i>
-                    <i class='bxl  bx-figma' title="Figma"></i>
+        <!-- About Section -->
+        <section class="section container section-about" id="about">
+            <div class="about-image-wrapper" data-aos="fade-right">
+                <img src="https://jea-life.vercel.app/assets/jean_guylane_memiaghe.webp" alt="Photo de Jean Guylane Memiaghe"
+                    class="about-image">
+                <div class="about-experience-badge">
+                    <span>3+</span>
+                    <span>Ans d'Expérience</span>
                 </div>
             </div>
-            <div class="section-about-right">
-                <p>
-                    Je suis Jean Guylane aussi appelé <a href="https://www.jealife.agency/" target="_blank"></a>
-                    JEaLiFe, développeur web et mobile avec 3 ans d'expérience et passionné de
-                    photographie. J'aime créer des interfaces interactives en utilisant Next JS. Mon objectif est de
-                    combiner mes compétences en développement
-                    et ma passion pour la photographie pour créer des projets uniques. Contactez-moi pour discuter de
-                    collaborations passionnantes.
+
+            <div class="about-content" data-aos="fade-left">
+                <h3>Qui suis-je ?</h3>
+                <h2>Passionné par la fusion du <span class="text-gradient">Code</span> et de l'<span
+                        class="text-gradient">Image</span></h2>
+                <p class="about-description">
+                    Développeur web et mobile basé à Libreville, Gabon, je mets mon expertise technique au service de
+                    vos projets digitaux. Passionné de photographie, j'apporte un regard esthétique et minutieux à
+                    chaque interface que je conçois.
                 </p>
-            </div>
-
-        </section>
-
-        <section class="section">
-            <div class="exerience">
-                <div class="max experience">
-                    <h2 class="title txt-link section-about-title">
-                        Exprériences
-                    </h2>
-                    <div class="timeline">
-                        <div class="container-tilmeline left" data-aos="zoom-in-left" data-aos-delay="300"
-                            data-aos-duration="800" data-aos-easing="ease-in-out">
-                            <div class="content">
-                                <h2>Janvier 2024 - Aujourd'hui</h2>
-                                <p>Directeur & Fondateur de <a target="_blank" href="https://jealife.agency"> JEaLiFe
-                                        Agency</a> | Libreville, Gabon | <br>
-                                    <span style="font-size: 14px;">
-                                        Agence web digitale spécialisée dans la création de contenu visuel, branding,
-                                        photos et création de sites web vitrine.
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="container-tilmeline right" data-aos="zoom-in-right" data-aos-delay="300"
-                            data-aos-duration="800" data-aos-easing="ease-in-out">
-                            <div class="content">
-                                <h2>Aout 2022 - Mars 2023</h2>
-                                <p>Developpeur web, graphiste et photographe au seins de l'académie de formation TOTAC
-                                    académie à
-                                    Casabalca au Maroc.</p>
-                            </div>
-                        </div>
-                        <div class="container-tilmeline left" data-aos="zoom-in-left" data-aos-delay="300"
-                            data-aos-duration="800" data-aos-easing="ease-in-out">
-                            <div class="content">
-                                <h2>Aout 2021-Septembre 2023</h2>
-                                <p>
-                                    Community manager et Photographe au sein du restaurant Bambou d'Afrique à Casabalca
-                                    au Maroc.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- <div class="container-tilmeline right" data-aos="zoom-in-right" data-aos-delay="300"
-                            data-aos-duration="800" data-aos-easing="ease-in-out">
-                            <div class="content">
-                                <h2>2022</h2>
-                                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
-                                    mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit
-                                    voluptua dignissim per, habeo iusto primis ea eam.</p>
-                            </div> -->
-                    </div>
-                </div>
-            </div>
-
-            </div>
-            </div>
-        </section>
-
-        <!-- work section -->
-        <section class="section-work section container-dark" id="work">
-            <div class="section-work-top">
-                <h1 class="section--big-title">
-                    Mes réalistaions<span class="dot">•</span>
-
-                </h1>
-                <p class="text-bg-dark">
-                    Voici quelques unes de mes réalisations et prises dont je suis particulièrement fier.
-                </p>
-            </div>
-
-            <div id="portfolio" class="portfolio">
-                <div id="btnFilter">
-                    <button class="btn active" onclick="filterSelection('all')"> Tout</button>
-                    <button class="btn" onclick="filterSelection('pictures')">
-                        Photographies</button>
-                    <button class="btn" onclick="filterSelection('website')">Sites web</button>
-                </div>
-
-                <div class="container">
-                    <div class="filter pictures">
-                        <img src="assets/images/skooter Marrakech.jpg" alt>
-                        <div class="link-portfolio">
-                            <a href="assets/images/skooter Marrakech.jpg" target="_blank">Quad Marrakech</a>
-                        </div>
-                    </div>
-                    <div class="filter pictures">
-                        <img src="assets/images/JEALIFE_Pictures.jpg" alt>
-                        <div class="link-portfolio">
-                            <a href="assets/images/JEALIFE_Pictures.jpg" target="_blank">JEALIFE Pictures</a>
-                        </div>
-                    </div>
-                    <div class="filter website">
-
-                        <img src="assets/images/tiremt.png" alt>
-                        <div class="link-portfolio">
-                            <a href="https://tirem-t.vercel.app/" target="_blank"> TiremT</a>
-                        </div>
-                    </div>
-
-                    <div class="filter website">
-                        <img src="assets/images/Jealife Portfolio.png" alt>
-                        <div class="link-portfolio">
-                            <a href="https://jea-portfolio.vercel.app/" target="_blank"> JEaLiFe</a>
-                        </div>
-                    </div>
-                    <div class="filter pictures">
-                        <img src="assets/images/girl.jpg" alt>
-                        <div class="link-portfolio">
-                            <a href="assets/images/girl.jpg" target="_blank">Girl</a>
-                        </div>
-                    </div>
-                    <div class="filter website">
-                        <img src="assets/images/Flexfit.png" alt>
-                        <div class="link-portfolio">
-                            <a href="https://flex-fit-tau.vercel.app/" target="_blank"> FlexFit</a>
-                        </div>
-                    </div>
+                <div class="skills-grid">
+                    <div class="skill-tag"><i class='bx bxl-nextjs'></i> Next.js</div>
+                    <div class="skill-tag"><i class='bx bxl-tailwind-css'></i> Tailwind</div>
+                    <div class="skill-tag"><i class='bx bxl-figma'></i> Figma</div>
+                    <div class="skill-tag"><i class='bx bxl-wordpress'></i> Wordpress</div>
+                    <div class="skill-tag"><i class='bx bxs-camera'></i> Photo</div>
                 </div>
             </div>
         </section>
-        <!-- contact section -->
-        <section class="section-contact section container" id="contact">
-            <div class="contact-information">
-                <h3>JEaLiFe</h3>
-                <h2 class="section-about-title"> Contactez moi</h2>
-                <img src="https://avatars.githubusercontent.com/u/83034287?v=4" alt="Jean Guylane Memiaghe">
 
-                <div class="skills socials ">
-                    <!-- Socilal -->
-                    <a href="mailto:jealife.pictures@gmail.com"><i class='bx bxs-envelope'></i></a>
-                    <a href="http://instagram.com/jealife_pictures">
-                        <i class='bxl  bx-instagram'></i>
-                    </a>
-                    <a href="https://github.com/jealife">
-                        <i class='bxl  bx-github'></i>
-                    </a>
-
-                </div>
-
+        <!-- Experience Section -->
+        <section class="section container">
+            <div class="section-work-header" data-aos="fade-up">
+                <h2>Mon Parcours</h2>
+                <p>Une progression constante dans le monde du numérique.</p>
             </div>
 
-            <form action="https://submit-form.com/Q6PX1HC6">
+            <div class="experience-timeline">
+                <div class="experience-item" data-aos="fade-up">
+                    <span class="exp-date">Janvier 2024 - Présent</span>
+                    <h3 class="exp-title">Directeur & Fondateur</h3>
+                    <span class="exp-company">JEaLiFe Agency | Libreville, Gabon</span>
+                    <p class="exp-desc">Direction d'une agence digitale spécialisée dans la création de contenu visuel,
+                        le branding et le développement web vitrine.</p>
+                </div>
+                <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="exp-date">Août 2022 - Mars 2023</span>
+                    <h3 class="exp-title">Développeur Web & Graphiste</h3>
+                    <span class="exp-company">TOTAC Académie | Casablanca, Maroc</span>
+                    <p class="exp-desc">Conception de supports visuels et maintenance des plateformes web pour
+                        l'académie de formation.</p>
+                </div>
+                <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="exp-date">Août 2021 - Septembre 2023</span>
+                    <h3 class="exp-title">Photographe & Community Manager</h3>
+                    <span class="exp-company">Bambou d'Afrique | Casablanca, Maroc</span>
+                    <p class="exp-desc">Gestion de l'image de marque et création de contenu visuel pour le secteur de la
+                        restauration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section class="section container" id="work">
+            <div class="section-work-header" data-aos="fade-up">
+                <h2>Mes Réalisations</h2>
+                <div class="filter-btns" id="btnFilter">
+                    <button class="filter-btn active" onclick="filterSelection('all')">Tout</button>
+                    <button class="filter-btn" onclick="filterSelection('website')">Web</button>
+                    <button class="filter-btn" onclick="filterSelection('pictures')">Photos</button>
+                </div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item website show" data-aos="zoom-in">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/tiremt.png" alt="Capture du projet TiremT" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="https://tirem-t.vercel.app/" target="_blank" class="btn btn-outline">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">TiremT</h3>
+                        <span class="portfolio-tags">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item pictures show" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/skooter Marrakech.jpg" alt="Photographie Quad à Marrakech"
+                            class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="assets/images/skooter Marrakech.jpg" target="_blank" class="btn btn-outline">Voir
+                                l'image</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Quad Marrakech</h3>
+                        <span class="portfolio-tags">Photography</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item website show" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/Jealife Portfolio.png" alt="Capture du portfolio JEaLiFe"
+                            class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="https://jea-portfolio.vercel.app/" target="_blank"
+                                class="btn btn-outline">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Portfolio JEaLiFe</h3>
+                        <span class="portfolio-tags">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item pictures show" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/JEALIFE_Pictures.jpg" alt="Photographie artistique"
+                            class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="assets/images/JEALIFE_Pictures.jpg" target="_blank" class="btn btn-outline">Voir
+                                l'image</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Artistic Vision</h3>
+                        <span class="portfolio-tags">Photography</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item website show" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/Flexfit.png" alt="Capture du projet FlexFit" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="https://flex-fit-tau.vercel.app/" target="_blank"
+                                class="btn btn-outline">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">FlexFit</h3>
+                        <span class="portfolio-tags">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item pictures show" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/images/girl.jpg" alt="Portrait photographie" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <a href="assets/images/girl.jpg" target="_blank" class="btn btn-outline">Voir l'image</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Portrait Study</h3>
+                        <span class="portfolio-tags">Photography</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section container section-contact" id="contact">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Travaillons <span class="text-gradient">Ensemble</span></h2>
+                <p>Vous avez un projet en tête ou souhaitez simplement échanger ? N'hésitez pas à me contacter.</p>
+
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <span>jealife.pictures@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class='bx bx-map'></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Localisation</h4>
+                        <span>Libreville, Gabon</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="http://instagram.com/jealife_pictures" target="_blank" class="social-link"><i
+                            class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/jealife" target="_blank" class="social-link"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link"><i
+                            class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+            <form action="https://submit-form.com/Q6PX1HC6" class="contact-form" data-aos="fade-left">
                 <input type="hidden" name="_redirect" value="https://jea-life.vercel.app/" />
-                <div class="name">
-                    <label for="name">Nom</label>
-                    <input type="text" id="name" name="name" aria-required="true" placeholder="Nom" required="" autocomplete="" />
+                <div class="form-group">
+                    <label for="name">Votre Nom</label>
+                    <input type="text" id="name" name="name" class="form-control" required
+                        placeholder="Ex: Jean Dupont">
                 </div>
-                <div class="email">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" aria-required="true" placeholder="Email" required="" />
+                <div class="form-group">
+                    <label for="email">Votre Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required
+                        placeholder="Ex: jean@example.com">
                 </div>
-                <div class="message">
+                <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" aria-required="true" placeholder="Message"
-                        required=""></textarea>
+                    <textarea id="message" name="message" class="form-control" required
+                        placeholder="Dites-moi tout sur votre projet..."></textarea>
                 </div>
-                <div class="btn-form">
-
-                    <button type="submit">Envoyer</button>
-                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le Message <i
+                        class='bx bx-send'></i></button>
             </form>
         </section>
     </main>
+
     <footer class="footer">
-        <div class="footer-container sectionntainer">
-
-            <div class="footer-logo"><i class='bx bx-code'></i></div>
-            <div class="socials ">
-                <!-- Socilal -->
-                <a href="mailto:jealife.pictures@gmail.com">
-                    <i class='bx bxs-envelope'></i></a>
-                <a href="http://instagram.com/jealife_pictures">
-                    <i class='bxl  bx-instagram'></i>
-                </a>
-                <a href="https://github.com/jealife">
-                    <i class='bxl  bx-github'></i>
-                </a>
-
+        <div class="container">
+            <div class="footer-logo">
+                <i class='bx bx-code-alt'></i> Jean Guylane
             </div>
-
-            <div class="copy-right">&copy; Jean Guylane, 2023.</div>
-
+            <p class="copyright">&copy; 2024 Jean Guylane Memiaghe. Tous droits réservés.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        filterSelection("all")
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("filter");
-            if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
-                w3RemoveClass(x[i], "show");
-                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-            }
-        }
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
-        function w3AddClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
-            }
-        }
+        // Mobile Menu
+        const navMenu = document.getElementById('nav-menu'),
+            navToggle = document.getElementById('nav-toggle'),
+            navClose = document.getElementById('nav-close');
 
-        function w3RemoveClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                while (arr1.indexOf(arr2[i]) > -1) {
-                    arr1.splice(arr1.indexOf(arr2[i]), 1);
-                }
-            }
-            element.className = arr1.join(" ");
-        }
-
-        // Add active class to the current button (highlight it)
-        var btnContainer = document.getElementById("btnFilter");
-        var btns = btnContainer.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.add('active');
             });
         }
 
-        //
-        /* ****************Animation*********/
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        }
+
+        // Sticky Header & Active Link
+        const header = document.getElementById('header');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        }));
+
+        window.addEventListener('scroll', () => {
+            // Header scroll
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Active link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Portfolio Filter
+        function filterSelection(c) {
+            const items = document.querySelectorAll('.portfolio-item');
+            if (c === 'all') c = 'portfolio-item';
+
+            items.forEach(item => {
+                item.classList.remove('show');
+                if (item.classList.contains(c) || c === 'portfolio-item') {
+                    setTimeout(() => item.classList.add('show'), 10);
+                }
+            });
+
+            // Update active button
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase().includes(c.replace('portfolio-item', 'tout').toLowerCase())) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Typewriter Effect
         var TxtType = function (el, toRotate, period) {
             this.toRotate = toRotate;
             this.el = el;
@@ -371,9 +435,7 @@
 
             var that = this;
             var delta = 200 - Math.random() * 100;
-
             if (this.isDeleting) { delta /= 2; }
-
             if (!this.isDeleting && this.txt === fullTxt) {
                 delta = this.period;
                 this.isDeleting = true;
@@ -383,9 +445,7 @@
                 delta = 500;
             }
 
-            setTimeout(function () {
-                that.tick();
-            }, delta);
+            setTimeout(function () { that.tick(); }, delta);
         };
 
         window.onload = function () {
@@ -397,19 +457,8 @@
                     new TxtType(elements[i], JSON.parse(toRotate), period);
                 }
             }
-            // INJECT CSS
-            var css = document.createElement("style");
-            css.type = "text/css";
-            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-            document.body.appendChild(css);
-        }
-
+        };
     </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <!-- <script src="assets/js/main.js"></script> -->
 </body>
 
 </html>
