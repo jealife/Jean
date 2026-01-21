@@ -121,7 +121,7 @@ export default function Contact() {
                         placeholder="Dites-moi tout sur votre projet..."
                     ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary w-full">
+                <button type="submit" className="btn btn-primary w-max">
                     Envoyer le Message <i className="bx bx-send"></i>
                 </button>
             </form>
