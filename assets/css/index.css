@@ -7,6 +7,9 @@
     z-index: var(--z-header);
     transition: var(--transition-base);
     padding: 1.5rem 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
 }
 
 .header.scrolled {
@@ -29,6 +32,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-logo i {
@@ -111,9 +115,10 @@
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, var(--fs-5xl));
+    font-size: clamp(2rem, 8vw, var(--fs-5xl));
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    word-wrap: break-word;
 }
 
 .typewrite {
@@ -132,6 +137,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .hero-projects-grid {
@@ -350,7 +356,7 @@
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -467,6 +473,7 @@
 .contact-text span {
     color: var(--text-muted);
     font-size: var(--fs-sm);
+    word-break: break-all;
 }
 
 .social-links {
@@ -566,20 +573,31 @@ textarea.form-control {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 70%;
         height: 100vh;
         background: var(--bg-secondary);
         flex-direction: column;
         justify-content: center;
         padding: 2rem;
-        transition: 0.4s ease;
+        transition: transform 0.4s ease;
+        transform: translateX(100%);
         z-index: var(--z-header);
         box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
+    }
+
+    .about-experience-badge {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 1.5rem;
+    }
+
+    .nav-logo {
+        font-size: 1.25rem;
     }
 
     .nav-menu li {
@@ -592,8 +610,13 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
     .hero-projects-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .contact-form {
