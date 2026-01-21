@@ -1,0 +1,28 @@
+{
+  "name": "jean",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"https://jea-life.vercel.app/assets/images/jean_guylane_memiaghe.webp\" alt=\"Jean Guylane\" width=\"200\" style=\"border-radius: 50%;\"> </p>",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/styles.css -o ./assets/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/styles.css -o ./assets/css/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jealife/Jean.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jealife/Jean/issues"
+  },
+  "homepage": "https://github.com/jealife/Jean#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
+  }
+}
