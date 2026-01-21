@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  /* Light Mode Colors */
+  --font-heading: var(--font-outfit), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  --color-primary: #ffffff;
+  --color-primary-secondary: #f1f5f9;
+  --color-primary-tertiary: #e2e8f0;
+  
+  --color-accent-primary: #6366f1;
+  --color-accent-secondary: #a855f7;
+  
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  
+  --background-image-accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  
+  --backdrop-blur-glass: 12px;
+  
+  --shadow-glow: 0 0 15px rgba(99, 102, 241, 0.2);
+  --shadow-glow-lg: 0 4px 15px rgba(99, 102, 241, 0.3);
+  --shadow-glow-xl: 0 8px 25px rgba(99, 102, 241, 0.4);
+  
+  --animate-delay-100: 100ms;
+  --animate-delay-200: 200ms;
+  --animate-delay-300: 300ms;
+  --animate-delay-400: 400ms;
+  --animate-delay-500: 500ms;
+}
+
+.dark {
+  /* Dark Mode Colors (Original) */
+  --color-primary: #05070a;
+  --color-primary-secondary: #0f1218;
+  --color-primary-tertiary: #1a1f29;
+  
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  
+  --shadow-glow: 0 0 15px rgba(99, 102, 241, 0.3);
+  --shadow-glow-lg: 0 4px 15px rgba(99, 102, 241, 0.4);
+  --shadow-glow-xl: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-secondary: var(--color-primary-secondary);
+  --color-primary-tertiary: var(--color-primary-tertiary);
+  
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-secondary: var(--color-accent-secondary);
+  
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  
+  --background-image-accent-gradient: var(--background-image-accent-gradient);
+  
+  --backdrop-blur-glass: var(--backdrop-blur-glass);
+  
+  --shadow-glow: var(--shadow-glow);
+  --shadow-glow-lg: var(--shadow-glow-lg);
+  --shadow-glow-xl: var(--shadow-glow-xl);
+  
+  --animate-delay-100: var(--animate-delay-100);
+  --animate-delay-200: var(--animate-delay-200);
+  --animate-delay-300: var(--animate-delay-300);
+  --animate-delay-400: var(--animate-delay-400);
+  --animate-delay-500: var(--animate-delay-500);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-8 py-3 rounded-full font-heading font-semibold uppercase tracking-wider text-sm transition-all duration-300 cursor-pointer;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-primary text-white shadow-glow hover:bg-accent-secondary hover:shadow-glow-lg hover:-translate-y-1;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border border-text-primary/30 text-text-primary hover:border-accent-primary hover:bg-accent-primary/10 hover:-translate-y-1;
+  }
+
+  .text-gradient {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+
+  .section {
+    @apply py-20 relative w-full overflow-hidden;
+  }
+
+  .nav-link {
+    @apply font-heading font-medium text-text-secondary text-sm uppercase tracking-wider hover:text-accent-primary transition-colors cursor-pointer;
+  }
+  
+  .nav-link.active {
+    @apply text-accent-primary;
+  }
+}
+
+/* Custom Utilities from original site */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+
+/* Animations that were inline in original HTML */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-item {
+    /* Hidden logic handled by React state now, but keeping animation */
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-primary); 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-primary); 
+}
+
