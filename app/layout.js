@@ -1,7 +1,7 @@
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers";
-
+import { Analytics } from "@vercel/analytics/next"
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -81,6 +81,7 @@ export default function RootLayout({ children }) {
           </div>
         </ThemeProvider>
       </body>
+      <Analytics/>
     </html>
   );
 }
