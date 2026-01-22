@@ -22,7 +22,30 @@ export const metadata = {
     url: "https://jea-life.vercel.app/",
     title: "Jean Guylane Memiaghe | Portfolio",
     description: "Découvrez l'univers de Jean Guylane Memiaghe, entre code et photographie.",
-    images: [{ url: "https://jea-life.vercel.app/jean_guylane_memiaghe.webp" }],
+    siteName: "Jean Guylane Memiaghe",
+    images: [{
+      url: "https://jea-life.vercel.app/jean_guylane_memiaghe.webp",
+      width: 1200,
+      height: 630,
+      alt: "Jean Guylane Memiaghe Portfolio"
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jean Guylane Memiaghe | Portfolio",
+    description: "Découvrez l'univers de Jean Guylane Memiaghe, entre code et photographie.",
+    images: ["https://jea-life.vercel.app/jean_guylane_memiaghe.webp"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/jean_guylane_memiaghe.webp",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -31,6 +54,23 @@ export default function RootLayout({ children }) {
     <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Jean Guylane Memiaghe",
+              "url": "https://jea-life.vercel.app/",
+              "image": "https://jea-life.vercel.app/jean_guylane_memiaghe.webp",
+              "jobTitle": "Développeur Web | Photographe",
+              "sameAs": [
+                "https://github.com/jealife",
+                "https://linkedin.com/in/jealife"
+              ]
+            }),
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-primary text-text-primary overflow-x-hidden`}
