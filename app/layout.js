@@ -53,6 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="yCwgh2yrykVaS-qZ8sNMUygk6amYyuseXmMcep0Qvsc" />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
         <script
           type="application/ld+json"
