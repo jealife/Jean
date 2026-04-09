@@ -18,7 +18,7 @@ export default function About() {
                 </div>
                 <div className="absolute -bottom-8 -right-8 bg-accent-gradient p-8 rounded-md text-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] text-white">
                     <span className="block text-4xl font-extrabold leading-none font-heading">
-                        4+
+                        6+
                     </span>
                     <span className="font-heading text-sm">Ans d'Expérience</span>
                 </div>
