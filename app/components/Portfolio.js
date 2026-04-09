@@ -49,6 +49,41 @@ export default function Portfolio() {
             link: "https://talent-box-clone.vercel.app/",
             cta: "Visiter",
         },
+        {
+            title: "Portrait. Model: Rocksia Mbemba",
+            category: "pictures",
+            image: "https://images.unsplash.com/photo-1735530504626-56011dc003d9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1534528741775-53994a69daebhttps://images.unsplash.com/photo-1735530504626-56011dc003d9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            cta: "Voir l'image",
+        },
+        {
+            title: "Femmes avec des chapeaux de paille dans un champs",
+            category: "pictures",
+            image: "https://images.unsplash.com/photo-1714898579275-dcb4fbcbe142?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1714898579275-dcb4fbcbe142?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            cta: "Voir l'image",
+        },
+        {
+            title: "Paysage du pont d'Adouma de Lambaréné, Gabon",
+            category: "pictures",
+            image: "https://images.unsplash.com/photo-1759082927410-1d1856152b50?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1759082927410-1d1856152b50?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            cta: "Voir l'image",
+        },
+        {
+            title: "Portrait d'une fille aux cheveux Afro. Model: Oceanne Evane",
+            category: "pictures",
+            image: "https://images.unsplash.com/photo-1699220274995-a37956b7e43e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1699220274995-a37956b7e43e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            cta: "Voir l'image",
+        },
+        {
+            title: "Orphee NYNY",
+            category: "pictures",
+            image: "https://images.unsplash.com/photo-1746036295519-f12529f893db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1746036295519-f12529f893db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            cta: "Voir l'image",
+        },
     ];
 
     const filteredProjects =
@@ -66,6 +101,7 @@ export default function Portfolio() {
                     {[
                         { id: "all", label: "Tout" },
                         { id: "website", label: "Web" },
+                        { id: "pictures", label: "Photos" },
                     ].map((btn) => (
                         <button
                             key={btn.id}
