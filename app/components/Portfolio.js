@@ -53,7 +53,7 @@ export default function Portfolio() {
             title: "Portrait. Model: Rocksia Mbemba",
             category: "pictures",
             image: "https://images.unsplash.com/photo-1735530504626-56011dc003d9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            link: "https://images.unsplash.com/photo-1534528741775-53994a69daebhttps://images.unsplash.com/photo-1735530504626-56011dc003d9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            link: "https://images.unsplash.com/photo-1735530504626-56011dc003d9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             cta: "Voir l'image",
         },
         {
