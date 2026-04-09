@@ -8,46 +8,46 @@ export default function Portfolio() {
 
     const projects = [
         {
-            title: "TiremT",
+            title: "JEaLiFe Agency",
             category: "website",
-            image: "/tiremt.webp",
-            link: "https://tirem-t.vercel.app/",
+            image: "/projects/jealife.jpg",
+            link: "https://www.jealife.com",
             cta: "Visiter",
         },
         {
-            title: "Quad Marrakech",
-            category: "pictures",
-            image: "/skooter-marrakech_conver.webp",
-            link: "/skooter-marrakech_conver.webp",
-            cta: "Voir l'image",
-        },
-        {
-            title: "Portfolio JEaLiFe",
+            title: "Orpheenyny",
             category: "website",
-            image: "/jealife-portfolio.webp",
-            link: "https://jea-portfolio.vercel.app/",
+            image: "/projects/orpheenyny.jpg",
+            link: "https://www.orpheenyny.com",
             cta: "Visiter",
         },
         {
-            title: "Mosquée Hassan 2",
-            category: "pictures",
-            image: "/mosquee-hassan2.webp",
-            link: "/Mosquee-Hassan-II.jpg",
-            cta: "Voir l'image",
-        },
-        {
-            title: "FlexFit",
+            title: "Eloquent Boutique",
             category: "website",
-            image: "/Flexfit.webp",
-            link: "https://flex-fit-tau.vercel.app/",
+            image: "/projects/eloquent-boutique.jpg",
+            link: "https://www.eloquentgrandb.com/boutique",
             cta: "Visiter",
         },
         {
-            title: "Portrait Study",
-            category: "pictures",
-            image: "/girl.webp",
-            link: "/girl.jpg",
-            cta: "Voir l'image",
+            title: "Eloquent Grand B",
+            category: "website",
+            image: "/projects/eloquent.jpg",
+            link: "https://www.eloquentgrandb.com",
+            cta: "Visiter",
+        },
+        {
+            title: "Éclat 241",
+            category: "website",
+            image: "/projects/eclat241.jpg",
+            link: "https://eclat241.vercel.app",
+            cta: "Visiter",
+        },
+        {
+            title: "Talent Box Clone",
+            category: "website",
+            image: "/projects/talent-box.jpg",
+            link: "https://talent-box-clone.vercel.app/",
+            cta: "Visiter",
         },
     ];
 
@@ -66,7 +66,6 @@ export default function Portfolio() {
                     {[
                         { id: "all", label: "Tout" },
                         { id: "website", label: "Web" },
-                        { id: "pictures", label: "Photos" },
                     ].map((btn) => (
                         <button
                             key={btn.id}
