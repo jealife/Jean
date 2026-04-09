@@ -86,3 +86,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// npm run capture-portfolio
