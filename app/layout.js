@@ -1,89 +1,159 @@
-import { Inter, Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers";
-import { Analytics } from "@vercel/analytics/next"
-const inter = Inter({
-  variable: "--font-inter",
+import { Analytics } from "@vercel/analytics/next";
+
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
+
+const FULL_NAME = "Jean Guylane MEMIAGHE BITEGHE";
+const SITE_URL = "https://jea-life.vercel.app";
+const DESCRIPTION =
+  "Jean Guylane MEMIAGHE BITEGHE, développeur web & mobile, designer graphique et photographe à Libreville, Gabon. Sites web, identités visuelles et photographie.";
 
 export const metadata = {
-  title: "Jean Guylane Memiaghe | Développeur Web & Mobile | Photographe",
-  description: "Jean Guylane Memiaghe - Développeur Web & Mobile passionné et Photographe professionnel. Création d'expériences numériques uniques et captures visuelles d'exception.",
-  keywords: "Jean Guylane Memiaghe, jealife, développeur web gabon, photographe libreville, création site web, portfolio développeur, graphic designer gabon",
-  authors: [{ name: "Jean Guylane Memiaghe" }],
+  metadataBase: new URL(SITE_URL),
+  title: `${FULL_NAME} · Développeur web & photographe`,
+  description: DESCRIPTION,
+  applicationName: FULL_NAME,
+  keywords: [
+    "Jean Guylane Memiaghe Biteghe",
+    "Jean Guylane Memiaghe",
+    "Memiaghe Biteghe",
+    "JEaLiFe",
+    "JEaLiFe Agency",
+    "développeur web Gabon",
+    "développeur web Libreville",
+    "création site web Libreville",
+    "photographe Libreville",
+    "graphiste Gabon",
+  ],
+  authors: [{ name: FULL_NAME, url: SITE_URL }],
+  creator: FULL_NAME,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    type: "website",
-    url: "https://jea-life.vercel.app/",
-    title: "Jean Guylane Memiaghe | Portfolio",
-    description: "Découvrez l'univers de Jean Guylane Memiaghe, entre code et photographie.",
-    siteName: "Jean Guylane Memiaghe",
-    images: [{
-      url: "https://jea-life.vercel.app/jean_guylane_memiaghe.webp",
-      width: 1200,
-      height: 630,
-      alt: "Jean Guylane Memiaghe Portfolio"
-    }],
+    type: "profile",
+    locale: "fr_FR",
+    url: "/",
+    siteName: FULL_NAME,
+    title: `${FULL_NAME} · Portfolio`,
+    description: DESCRIPTION,
+    firstName: "Jean Guylane",
+    lastName: "Memiaghe Biteghe",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jean Guylane Memiaghe | Portfolio",
-    description: "Découvrez l'univers de Jean Guylane Memiaghe, entre code et photographie.",
-    images: ["https://jea-life.vercel.app/jean_guylane_memiaghe.webp"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/jean_guylane_memiaghe.webp",
-  },
-  alternates: {
-    canonical: "/",
+    title: `${FULL_NAME} · Portfolio`,
+    description: DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  verification: {
+    google: "yCwgh2yrykVaS-qZ8sNMUygk6amYyuseXmMcep0Qvsc",
+  },
+};
+
+export const viewport = {
+  themeColor: "#0b0a09",
+};
+
+// Données structurées : page de profil + personne + site
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: FULL_NAME,
+      inLanguage: "fr-FR",
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: SITE_URL,
+      name: `${FULL_NAME} · Portfolio`,
+      inLanguage: "fr-FR",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: FULL_NAME,
+      givenName: "Jean Guylane",
+      familyName: "Memiaghe Biteghe",
+      alternateName: ["Jean Guylane Memiaghe Biteghe", "Jean Guylane Memiaghe", "JEaLiFe"],
+      url: SITE_URL,
+      image: `${SITE_URL}/jean_guylane_memiaghe.webp`,
+      email: "mailto:jealife.pictures@gmail.com",
+      jobTitle: ["Développeur web & mobile", "Designer graphique", "Photographe"],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Libreville",
+        addressCountry: "GA",
+      },
+      worksFor: {
+        "@type": "Organization",
+        name: "JEaLiFe Agency",
+        url: "https://www.jealife.com",
+      },
+      knowsAbout: ["Développement web", "Next.js", "React", "Tailwind CSS", "WordPress", "Figma", "Design graphique", "Photographie"],
+      sameAs: [
+        "https://github.com/jealife",
+        "https://linkedin.com/in/jealife",
+        "https://instagram.com/jealife_pictures",
+        "https://unsplash.com/fr/@jealife_pictures",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="fr" className="scroll-smooth dark" suppressHydrationWarning>
       <head>
-        <meta name="google-site-verification" content="yCwgh2yrykVaS-qZ8sNMUygk6amYyuseXmMcep0Qvsc" />
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+        <link rel="preconnect" href="https://unpkg.com" />
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Jean Guylane Memiaghe",
-              "url": "https://jea-life.vercel.app/",
-              "image": "https://jea-life.vercel.app/jean_guylane_memiaghe.webp",
-              "jobTitle": "Développeur Web | Photographe",
-              "sameAs": [
-                "https://github.com/jealife",
-                "https://linkedin.com/in/jealife"
-              ]
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} antialiased bg-primary text-text-primary overflow-x-hidden`}
+        className={`${geist.variable} ${geistMono.variable} ${instrument.variable} grain antialiased bg-bg text-ink overflow-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="relative w-full overflow-x-hidden flex flex-col min-h-screen">
             {children}
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
-      <Analytics/>
     </html>
   );
 }
-// npm run capture-portfolio

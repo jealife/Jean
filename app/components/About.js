@@ -1,61 +1,56 @@
 import Image from "next/image";
 
+const specs = [
+    { label: "Basé à", value: "Libreville, Gabon" },
+    { label: "Expérience", value: "6+ ans · Gabon & Maroc" },
+    { label: "Métiers", value: "Développement web & mobile, design graphique, photographie" },
+    { label: "Outils", value: "Next.js · Tailwind CSS · WordPress · Figma" },
+    { label: "Agence", value: "Fondateur de JEaLiFe Agency" },
+];
+
 export default function About() {
     return (
-        <section
-            className="section container mx-auto px-4 grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 md:gap-20 items-center"
-            id="about"
-        >
-            <div className="relative" data-aos="fade-right">
-                <div className="rounded-lg overflow-hidden w-full aspect-4/5 relative shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                    <Image
-                        src="/jean_guylane_memiaghe.webp"
-                        alt="Photo de Jean Guylane Memiaghe"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                </div>
-                <div className="absolute -bottom-8 -right-8 bg-accent-gradient p-8 rounded-md text-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] text-white">
-                    <span className="block text-4xl font-extrabold leading-none font-heading">
-                        6+
-                    </span>
-                    <span className="font-heading text-sm">Ans d'Expérience</span>
-                </div>
-            </div>
+        <section id="about" className="relative py-28 sm:py-36">
+            <div className="container-x grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
+                <figure className="relative md:col-span-5" data-aos="fade-up">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] bg-surface">
+                        <Image
+                            src="/jean_guylane_memiaghe.webp"
+                            alt="Portrait en noir et blanc de Jean Guylane Memiaghe Biteghe, pull blanc, regard baissé"
+                            fill
+                            className="object-cover object-top grayscale"
+                            sizes="(max-width: 768px) 100vw, 40vw"
+                        />
+                    </div>
+                </figure>
 
-            <div data-aos="fade-left">
-                <h3 className="text-accent-primary uppercase text-sm tracking-[2px] mb-2 font-heading font-semibold">
-                    Qui suis-je ?
-                </h3>
-                <h2 className="mb-4 text-3xl md:text-4xl font-bold font-heading">
-                    Passionné par la fusion du <span className="text-gradient">Code</span>{" "}
-                    et de l'<span className="text-gradient">Image</span>
-                </h2>
-                <p className="text-text-secondary text-lg mb-8 font-body leading-relaxed">
-                    Développeur web et mobile basé à Libreville, Gabon, je mets mon
-                    expertise technique au service de vos projets digitaux. Passionné de
-                    photographie, j'apporte un regard esthétique et minutieux à chaque
-                    interface que je conçois.
-                </p>
-                <div className="flex flex-wrap gap-4 font-heading font-medium text-sm">
-                    <div className="bg-primary-secondary px-5 py-2 rounded-full flex items-center gap-2 border border-white/8 transition-all hover:border-accent-primary hover:-translate-y-1 cursor-default">
-                        <i className="bx bxl-nextjs text-xl text-accent-primary"></i> Next.js
+                <div className="md:col-span-6 md:col-start-7 md:pt-10">
+                    <p className="kicker mb-6" data-aos="fade-up">
+                        À propos
+                    </p>
+                    <h2 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1] tracking-[-0.01em]" data-aos="fade-up" data-aos-delay="60">
+                        Développeur, <em className="text-accent">avec un œil de photographe.</em>
+                    </h2>
+                    <div className="mt-8 max-w-[58ch] space-y-5 text-lg leading-relaxed text-ink-2" data-aos="fade-up" data-aos-delay="120">
+                        <p>
+                            Je m&apos;appelle Jean Guylane Memiaghe Biteghe et je vis à Libreville. Je crée des sites pour
+                            des marques, des boutiques en ligne et des artistes, et je m&apos;occupe de tout&nbsp;: la
+                            maquette, le développement et la mise en ligne.
+                        </p>
+                        <p>
+                            Je suis aussi photographe, et ça se voit dans mes interfaces&nbsp;: je fais attention au cadrage,
+                            aux couleurs et aux petits détails.
+                        </p>
                     </div>
-                    <div className="bg-primary-secondary px-5 py-2 rounded-full flex items-center gap-2 border border-white/8 transition-all hover:border-accent-primary hover:-translate-y-1 cursor-default">
-                        <i className="bx bxl-tailwind-css text-xl text-accent-primary"></i>{" "}
-                        Tailwind
-                    </div>
-                    <div className="bg-primary-secondary px-5 py-2 rounded-full flex items-center gap-2 border border-white/8 transition-all hover:border-accent-primary hover:-translate-y-1 cursor-default">
-                        <i className="bx bxl-figma text-xl text-accent-primary"></i> Figma
-                    </div>
-                    <div className="bg-primary-secondary px-5 py-2 rounded-full flex items-center gap-2 border border-white/8 transition-all hover:border-accent-primary hover:-translate-y-1 cursor-default">
-                        <i className="bx bxl-wordpress text-xl text-accent-primary"></i>{" "}
-                        Wordpress
-                    </div>
-                    <div className="bg-primary-secondary px-5 py-2 rounded-full flex items-center gap-2 border border-white/8 transition-all hover:border-accent-primary hover:-translate-y-1 cursor-default">
-                        <i className="bx bxs-camera text-xl text-accent-primary"></i> Photo
-                    </div>
+
+                    <dl className="mt-12 border-t border-line" data-aos="fade-up" data-aos-delay="180">
+                        {specs.map((s) => (
+                            <div key={s.label} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-line py-4 sm:grid-cols-[10rem_1fr]">
+                                <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-3 pt-1">{s.label}</dt>
+                                <dd className="text-ink">{s.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
                 </div>
             </div>
         </section>

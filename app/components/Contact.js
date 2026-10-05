@@ -1,130 +1,139 @@
+"use client";
+
+import { useState } from "react";
+
+const EMAIL = "jealife.pictures@gmail.com";
+
+const socials = [
+    { label: "Instagram", href: "https://instagram.com/jealife_pictures", icon: "bxl-instagram" },
+    { label: "GitHub", href: "https://github.com/jealife", icon: "bxl-github" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/jealife", icon: "bxl-linkedin" },
+    { label: "Unsplash", href: "https://unsplash.com/fr/@jealife_pictures", icon: "bx-camera" },
+];
+
+const projectTypes = ["Site web", "Identité visuelle", "Photographie", "Autre"];
+
+const fieldClass =
+    "w-full border-0 border-b border-line bg-transparent px-0 py-3 text-lg text-ink placeholder:text-ink-3/70 transition-colors focus:border-accent focus:outline-none focus:ring-0";
+
 export default function Contact() {
+    const [copied, setCopied] = useState(false);
+    const [sending, setSending] = useState(false);
+    const [type, setType] = useState(projectTypes[0]);
+
+    const copyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(EMAIL);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            window.location.href = `mailto:${EMAIL}`;
+        }
+    };
+
     return (
-        <section
-            className="section container mx-auto px-4 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20 items-start"
-            id="contact"
-        >
-            <div data-aos="fade-right">
-                <h2 className="mb-6 text-3xl md:text-4xl font-bold font-heading">
-                    Travaillons <span className="text-gradient">Ensemble</span>
-                </h2>
-                <p className="text-text-secondary mb-10 font-body">
-                    Vous avez un projet en tête ou souhaitez simplement échanger ?
-                    N'hésitez pas à me contacter.
-                </p>
+        <section id="contact" className="relative overflow-hidden border-t border-line py-28 sm:py-36">
+            <div
+                className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--accent)_16%,transparent),transparent)]"
+                aria-hidden="true"
+            />
+            <div className="container-x relative grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-10">
+                <div className="lg:col-span-6">
+                    <p className="kicker mb-6" data-aos="fade-up">
+                        Contact
+                    </p>
+                    <h2 className="font-display text-[clamp(2.75rem,7vw,6rem)] leading-[0.92]" data-aos="fade-up" data-aos-delay="60">
+                        Un projet ? <em className="text-accent">Écrivez-moi.</em>
+                    </h2>
+                    <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-ink-2" data-aos="fade-up" data-aos-delay="120">
+                        Pour un site, une identité visuelle ou une séance photo, envoyez-moi un email ou passez par le formulaire.
+                    </p>
 
-                <div className="flex items-center gap-6 mb-8">
-                    <div className="w-[60px] h-[60px] rounded-2xl bg-primary-tertiary flex items-center justify-center text-accent-primary text-2xl border border-text-primary/10 shrink-0">
-                        <i className="bx bx-envelope"></i>
+                    <div className="mt-12 flex flex-wrap items-center gap-3" data-aos="fade-up" data-aos-delay="160">
+                        <a href={`mailto:${EMAIL}`} className="break-all text-xl font-medium text-ink underline decoration-line decoration-1 underline-offset-8 transition-colors hover:decoration-accent sm:text-2xl">
+                            {EMAIL}
+                        </a>
+                        <button
+                            type="button"
+                            onClick={copyEmail}
+                            className="rounded-full border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:border-accent hover:text-accent"
+                            aria-live="polite"
+                        >
+                            {copied ? "Copié ✓" : "Copier"}
+                        </button>
                     </div>
-                    <div>
-                        <h4 className="mb-1 text-base font-heading font-semibold">Email</h4>
-                        <span className="text-text-muted text-sm break-all font-body">
-                            jealife.pictures@gmail.com
-                        </span>
-                    </div>
+                    <p className="mt-4 flex items-center gap-2 text-ink-2">
+                        <i className="bx bx-map text-accent" aria-hidden="true" /> Libreville, Gabon
+                    </p>
+
+                    <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+                        {socials.map((s) => (
+                            <li key={s.label}>
+                                <a href={s.href} target="_blank" rel="noopener noreferrer" className="link-underline text-ink-2 hover:text-ink">
+                                    <i className={`bx ${s.icon} text-lg`} aria-hidden="true" /> {s.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                <div className="flex items-center gap-6 mb-8">
-                    <div className="w-[60px] h-[60px] rounded-2xl bg-primary-tertiary flex items-center justify-center text-accent-primary text-2xl border border-text-primary/10 shrink-0">
-                        <i className="bx bx-map"></i>
-                    </div>
-                    <div>
-                        <h4 className="mb-1 text-base font-heading font-semibold">
-                            Localisation
-                        </h4>
-                        <span className="text-text-muted text-sm font-body">
-                            Libreville, Gabon
-                        </span>
-                    </div>
-                </div>
+                <form
+                    action="https://submit-form.com/Q6PX1HC6"
+                    method="POST"
+                    onSubmit={() => setSending(true)}
+                    className="rounded-xl border border-line bg-surface/60 p-6 backdrop-blur sm:p-10 lg:col-span-6"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
+                    <input type="hidden" name="_redirect" value="https://jea-life.vercel.app/" />
+                    <input type="hidden" name="type" value={type} />
 
-                <div className="flex gap-4 mt-12">
-                    <a
-                        href="http://instagram.com/jealife_pictures"
-                        target="_blank"
-                        className="w-11 h-11 rounded-full bg-primary-secondary flex items-center justify-center text-text-secondary text-xl border border-text-primary/10 transition-all hover:bg-accent-primary hover:text-white hover:-translate-y-1"
-                    >
-                        <i className="bx bxl-instagram"></i>
-                    </a>
-                    <a
-                        href="https://github.com/jealife"
-                        target="_blank"
-                        className="w-11 h-11 rounded-full bg-primary-secondary flex items-center justify-center text-text-secondary text-xl border border-text-primary/10 transition-all hover:bg-accent-primary hover:text-white hover:-translate-y-1"
-                    >
-                        <i className="bx bxl-github"></i>
-                    </a>
-                    <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        className="w-11 h-11 rounded-full bg-primary-secondary flex items-center justify-center text-text-secondary text-xl border border-text-primary/10 transition-all hover:bg-accent-primary hover:text-white hover:-translate-y-1"
-                    >
-                        <i className="bx bxl-linkedin"></i>
-                    </a>
-                </div>
+                    <fieldset>
+                        <legend className="kicker mb-4">Type de projet</legend>
+                        <div className="flex flex-wrap gap-2">
+                            {projectTypes.map((t) => (
+                                <button
+                                    key={t}
+                                    type="button"
+                                    onClick={() => setType(t)}
+                                    aria-pressed={type === t}
+                                    className={`rounded-full border px-4 py-2 text-sm transition-colors ${type === t ? "border-accent bg-accent text-accent-ink" : "border-line text-ink-2 hover:border-ink-3 hover:text-ink"}`}
+                                >
+                                    {t}
+                                </button>
+                            ))}
+                        </div>
+                    </fieldset>
+
+                    <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                        <label className="block">
+                            <span className="kicker">Nom</span>
+                            <input type="text" name="name" required autoComplete="name" placeholder="Votre nom" className={fieldClass} />
+                        </label>
+                        <label className="block">
+                            <span className="kicker">Email</span>
+                            <input type="email" name="email" required autoComplete="email" placeholder="vous@exemple.com" className={fieldClass} />
+                        </label>
+                    </div>
+
+                    <label className="mt-8 block">
+                        <span className="kicker">Message</span>
+                        <textarea
+                            name="message"
+                            required
+                            minLength={10}
+                            rows={5}
+                            placeholder="Quelques mots sur votre projet…"
+                            className={`${fieldClass} resize-y`}
+                        />
+                    </label>
+
+                    <button type="submit" disabled={sending} className="btn btn-accent mt-10 disabled:cursor-wait disabled:opacity-70">
+                        {sending ? "Envoi en cours…" : "Envoyer le message"}
+                        <i className={`bx ${sending ? "bx-loader-alt animate-spin" : "bx-right-arrow-alt"} text-lg`} aria-hidden="true" />
+                    </button>
+                </form>
             </div>
-
-            <form
-                action="https://submit-form.com/Q6PX1HC6"
-                className="bg-primary-secondary p-8 md:p-12 rounded-lg border border-text-primary/10"
-                data-aos="fade-left"
-            >
-                <input
-                    type="hidden"
-                    name="_redirect"
-                    value="https://jea-life.vercel.app/"
-                />
-                <div className="mb-6">
-                    <label
-                        htmlFor="name"
-                        className="block mb-2 text-text-secondary text-sm font-medium font-heading"
-                    >
-                        Votre Nom
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full bg-primary-tertiary border border-text-primary/10 p-4 rounded-sm text-text-primary font-body transition-colors focus:outline-none focus:border-accent-primary"
-                        required
-                        placeholder="Ex: Jean Dupont"
-                    />
-                </div>
-                <div className="mb-6">
-                    <label
-                        htmlFor="email"
-                        className="block mb-2 text-text-secondary text-sm font-medium font-heading"
-                    >
-                        Votre Email
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full bg-primary-tertiary border border-text-primary/10 p-4 rounded-sm text-text-primary font-body transition-colors focus:outline-none focus:border-accent-primary"
-                        required
-                        placeholder="Ex: jean@example.com"
-                    />
-                </div>
-                <div className="mb-6">
-                    <label
-                        htmlFor="message"
-                        className="block mb-2 text-text-secondary text-sm font-medium font-heading"
-                    >
-                        Message
-                    </label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        className="w-full bg-primary-tertiary border border-white/8 p-4 rounded-sm text-white font-body transition-colors focus:outline-none focus:border-accent-primary min-h-[150px] resize-y"
-                        required
-                        placeholder="Dites-moi tout sur votre projet..."
-                    ></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary w-max">
-                    Envoyer le Message <i className="bx bx-send"></i>
-                </button>
-            </form>
         </section>
     );
 }
