@@ -200,7 +200,8 @@ export default function NameParticles({ isTouch }) {
 
             // Ondes de choc
             for (let r = rings.length - 1; r >= 0; r--) {
-                const p = (now - rings[r].t) / 700;
+                // L'horodatage rAF peut précéder celui du clic : on borne à 0
+                const p = Math.max(0, (now - rings[r].t) / 700);
                 if (p >= 1) {
                     rings.splice(r, 1);
                     continue;
