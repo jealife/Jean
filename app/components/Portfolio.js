@@ -12,7 +12,7 @@ const websites = [
     { title: "Talent Box Clone", image: "/projects/talent-box.jpg", link: "https://talent-box-clone.vercel.app/", type: "Intégration" },
 ];
 
-const unsplash = (id) => `https://images.unsplash.com/photo-${id}?q=80&w=2000&auto=format&fit=crop`;
+const unsplash = (id) => `https://images.unsplash.com/photo-${id}?q=75&w=1600&auto=format&fit=crop`;
 
 const photos = [
     { title: "Portrait — Rocksia Mbemba", image: unsplash("1735530504626-56011dc003d9"), w: 2, h: 3 },
