@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import Logo from "./Logo";
 
 const navLinks = [
     { name: "Accueil", href: "#home", id: "home" },
@@ -63,8 +64,8 @@ export default function Header() {
                     }`}
             >
                 <nav className="container-x flex items-center justify-between" aria-label="Navigation principale">
-                    <Link href="#home" className="group flex items-baseline gap-2 text-ink" aria-label="Jean Guylane Memiaghe Biteghe — accueil">
-                        <span className="font-display text-2xl leading-none">J.G.</span>
+                    <Link href="#home" className="group flex items-center gap-2.5 text-ink" aria-label="Jean Guylane Memiaghe Biteghe — accueil">
+                        <Logo className="size-8 shrink-0" />
                         <span className="text-[13px] font-semibold uppercase tracking-[0.04em] transition-colors group-hover:text-accent">
                             Memiaghe Biteghe
                         </span>
