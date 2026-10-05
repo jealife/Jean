@@ -38,7 +38,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="force-dark relative overflow-hidden bg-bg text-ink">
+        <footer className="force-dark relative bg-bg text-ink">
             <div className="container-x pt-24 sm:pt-32">
                 {variant === "v1" ? <NameWave isTouch={isTouch} /> : <NameParticles isTouch={isTouch} />}
 

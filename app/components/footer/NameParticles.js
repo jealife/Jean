@@ -7,6 +7,10 @@ import { useEffect, useRef } from "react";
  * Ils se « révèlent » à l'arrivée sur le footer, fuient la souris en
  * tourbillon, éclatent au clic et basculent en relief avec l'inclinaison
  * du téléphone (secouer disperse les grains).
+ *
+ * Le canvas déborde du bloc du nom (toute la largeur de l'écran, et loin
+ * au-dessus du footer) pour que les grains et les ondes ne soient pas coupés.
+ * Il laisse passer les clics : les événements sont écoutés sur le footer.
  */
 
 const LEVELS = 6;
@@ -37,8 +41,12 @@ export default function NameParticles({ isTouch }) {
         const ctx = canvas.getContext("2d");
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        let W = 0;
-        let H = 0;
+        let W = 0; // largeur du bloc du nom
+        let H = 0; // hauteur du bloc du nom
+        let CW = 0; // dimensions du canvas qui déborde
+        let CH = 0;
+        let offX = 0; // position du bloc du nom dans le canvas
+        let offY = 0;
         let n = 0;
         let size = 3;
         let radius = 100;
@@ -80,6 +88,18 @@ export default function NameParticles({ isTouch }) {
             const lh = fs * 0.96;
             const padY = fs * 0.4;
             H = Math.ceil(lines.length * lh + padY * 2);
+            wrap.style.height = `${H}px`;
+
+            // Débordement : toute la largeur de l'écran, et vers le haut sur
+            // une bonne partie de la page (par-dessus la section Contact)
+            const wr = wrap.getBoundingClientRect();
+            const footer = wrap.closest("footer");
+            const bleedTop = Math.round(Math.min(window.innerHeight * 0.8, 760));
+            const bleedBottom = footer ? Math.max(0, Math.round(footer.getBoundingClientRect().bottom - wr.bottom)) : 0;
+            offX = Math.round(wr.left);
+            offY = bleedTop;
+            CW = document.documentElement.clientWidth;
+            CH = H + bleedTop + bleedBottom;
 
             off.width = Math.ceil(W);
             off.height = H;
@@ -108,26 +128,29 @@ export default function NameParticles({ isTouch }) {
             depth = new Float32Array(n);
             level = new Uint8Array(n);
             for (let i = 0; i < n; i++) {
-                hx[i] = pts[i * 2];
-                hy[i] = pts[i * 2 + 1];
-                x[i] = reduce ? hx[i] : Math.random() * W;
-                y[i] = reduce ? hy[i] : Math.random() * H;
+                hx[i] = pts[i * 2] + offX;
+                hy[i] = pts[i * 2 + 1] + offY;
+                x[i] = reduce ? hx[i] : Math.random() * CW;
+                y[i] = reduce ? hy[i] : offY + (Math.random() * 2 - 0.5) * H;
                 depth[i] = 0.3 + Math.random() * 0.7;
             }
             size = step * 0.72;
             radius = Math.max(70, W * M.radius);
             fsNow = fs;
 
-            canvas.width = Math.round(W * dpr);
-            canvas.height = Math.round(H * dpr);
-            canvas.style.height = `${H}px`;
+            canvas.width = Math.round(CW * dpr);
+            canvas.height = Math.round(CH * dpr);
+            canvas.style.width = `${CW}px`;
+            canvas.style.height = `${CH}px`;
+            canvas.style.left = `${-offX}px`;
+            canvas.style.top = `${-offY}px`;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             revealedAt = 0;
             draw(performance.now());
         };
 
-        const shockwave = (cx, cy, strength = 16) => {
-            const R = radius * 3;
+        const shockwave = (cx, cy, strength = 22) => {
+            const R = Math.max(radius * 3, W * 0.3);
             for (let i = 0; i < n; i++) {
                 const dx = x[i] - cx;
                 const dy = y[i] - cy;
@@ -138,7 +161,9 @@ export default function NameParticles({ isTouch }) {
                     vy[i] += (dy / d) * f;
                 }
             }
-            rings.push({ x: cx, y: cy, t: performance.now() });
+            // Deux cercles décalés pour un effet d'ondulation
+            const t = performance.now();
+            rings.push({ x: cx, y: cy, t }, { x: cx, y: cy, t: t + 140 });
         };
 
         const step = (now) => {
@@ -195,7 +220,7 @@ export default function NameParticles({ isTouch }) {
         };
 
         const draw = (now) => {
-            ctx.clearRect(0, 0, W, H);
+            ctx.clearRect(0, 0, CW, CH);
             for (let l = 0; l < LEVELS; l++) {
                 ctx.fillStyle = palette[l];
                 ctx.beginPath();
@@ -210,16 +235,18 @@ export default function NameParticles({ isTouch }) {
             // Ondes de choc
             for (let r = rings.length - 1; r >= 0; r--) {
                 // L'horodatage rAF peut précéder celui du clic : on borne à 0
-                const p = Math.max(0, (now - rings[r].t) / 700);
+                const p = Math.max(0, (now - rings[r].t) / 1300);
                 if (p >= 1) {
                     rings.splice(r, 1);
                     continue;
                 }
-                ctx.globalAlpha = (1 - p) * 0.8;
+                if (p === 0) continue;
+                const eased = 1 - (1 - p) ** 3;
+                ctx.globalAlpha = (1 - p) * 0.85;
                 ctx.strokeStyle = accent;
-                ctx.lineWidth = 1.5;
+                ctx.lineWidth = 2.5 * (1 - p) + 0.5;
                 ctx.beginPath();
-                ctx.arc(rings[r].x, rings[r].y, p * radius * 3, 0, Math.PI * 2);
+                ctx.arc(rings[r].x, rings[r].y, eased * Math.max(CW, CH) * 0.6, 0, Math.PI * 2);
                 ctx.stroke();
                 ctx.globalAlpha = 1;
             }
@@ -248,8 +275,8 @@ export default function NameParticles({ isTouch }) {
             pointer.active = true;
             if (e.pointerType === "mouse") {
                 // Léger relief qui suit la souris sur desktop
-                tilt.x = (pointer.x / W - 0.5) * 1.2;
-                tilt.y = (pointer.y / H - 0.5) * 1.2;
+                tilt.x = clamp(((pointer.x - offX) / W - 0.5) * 1.2, -1, 1);
+                tilt.y = clamp(((pointer.y - offY) / H - 0.5) * 1.2, -1, 1);
             }
         };
         const onPointerLeave = () => {
@@ -260,6 +287,7 @@ export default function NameParticles({ isTouch }) {
             }
         };
         const onPointerDown = (e) => {
+            if (e.target.closest("a, button")) return;
             const [px, py] = local(e);
             shockwave(px, py);
         };
@@ -275,7 +303,7 @@ export default function NameParticles({ isTouch }) {
             const now = performance.now();
             if (Math.hypot(a.x, a.y, a.z) > M.shake && now - lastShake > 600) {
                 lastShake = now;
-                shockwave(W / 2, H / 2, isTouch ? 34 : 26);
+                shockwave(offX + W / 2, offY + H / 2, isTouch ? 38 : 30);
             }
         };
 
@@ -285,19 +313,23 @@ export default function NameParticles({ isTouch }) {
             lastWidth = wrap.clientWidth;
             build();
         });
+        // Le canvas (et non le bloc du nom) : l'animation tourne tant que des
+        // grains peuvent être visibles au-dessus du footer
         const io = new IntersectionObserver(([entry]) => (entry.isIntersecting ? startLoop() : stopLoop()));
 
         let cancelled = false;
         (document.fonts?.ready ?? Promise.resolve()).then(() => {
             if (cancelled) return;
             ro.observe(wrap);
-            io.observe(wrap);
+            io.observe(canvas);
         });
 
-        canvas.addEventListener("pointermove", onPointerMove);
-        canvas.addEventListener("pointerleave", onPointerLeave);
-        canvas.addEventListener("pointercancel", onPointerLeave);
-        canvas.addEventListener("pointerdown", onPointerDown);
+        // Le canvas laisse passer les clics : on écoute le footer
+        const target = wrap.closest("footer") ?? wrap;
+        target.addEventListener("pointermove", onPointerMove);
+        target.addEventListener("pointerleave", onPointerLeave);
+        target.addEventListener("pointercancel", onPointerLeave);
+        target.addEventListener("pointerdown", onPointerDown);
         if (isTouch) {
             window.addEventListener("deviceorientation", onOrientation);
             window.addEventListener("devicemotion", onMotion);
@@ -308,18 +340,18 @@ export default function NameParticles({ isTouch }) {
             stopLoop();
             ro.disconnect();
             io.disconnect();
-            canvas.removeEventListener("pointermove", onPointerMove);
-            canvas.removeEventListener("pointerleave", onPointerLeave);
-            canvas.removeEventListener("pointercancel", onPointerLeave);
-            canvas.removeEventListener("pointerdown", onPointerDown);
+            target.removeEventListener("pointermove", onPointerMove);
+            target.removeEventListener("pointerleave", onPointerLeave);
+            target.removeEventListener("pointercancel", onPointerLeave);
+            target.removeEventListener("pointerdown", onPointerDown);
             window.removeEventListener("deviceorientation", onOrientation);
             window.removeEventListener("devicemotion", onMotion);
         };
     }, [isTouch]);
 
     return (
-        <div ref={wrapRef} role="img" aria-label="Jean Guylane Memiaghe Biteghe" className="relative w-full">
-            <canvas ref={canvasRef} className="block w-full cursor-crosshair touch-pan-y" aria-hidden="true" />
+        <div ref={wrapRef} role="img" aria-label="Jean Guylane Memiaghe Biteghe" className="relative w-full cursor-crosshair touch-pan-y">
+            <canvas ref={canvasRef} className="pointer-events-none absolute z-10 block max-w-none" aria-hidden="true" />
         </div>
     );
 }
