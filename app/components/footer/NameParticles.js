@@ -42,7 +42,12 @@ export default function NameParticles({ isTouch }) {
         let n = 0;
         let size = 3;
         let radius = 100;
-        let depthShift = 20;
+        let fsNow = 100;
+        // Sur mobile : relief plus profond, grains plus souples (ils traînent
+        // et rebondissent), capteur plus sensible, secousse plus facile
+        const M = isTouch
+            ? { fit: 0.82, slide: 0.2, depth: 0.12, spring: 0.032, damping: 0.9, tiltFollow: 0.12, sensitivity: 18, idle: 1, radius: 0.24, shake: 9, speedGlow: 1.6 }
+            : { fit: 0.94, slide: 0, depth: 0.11, spring: 0.05, damping: 0.86, tiltFollow: 0.08, sensitivity: 30, idle: 0.7, radius: 0.085, shake: 14, speedGlow: 0 };
         let hx, hy, x, y, vx, vy, depth, level;
         let palette = [];
         let accent = "#e3622f";
@@ -71,7 +76,7 @@ export default function NameParticles({ isTouch }) {
             const o = off.getContext("2d", { willReadFrequently: true });
             o.font = `800 100px ${styles.fontFamily}`;
             const widest = Math.max(...lines.map((l) => o.measureText(l).width));
-            const fs = Math.min((W * 0.94 * 100) / widest, 170);
+            const fs = Math.min((W * M.fit * 100) / widest, 170);
             const lh = fs * 0.96;
             const padY = fs * 0.4;
             H = Math.ceil(lines.length * lh + padY * 2);
@@ -110,8 +115,8 @@ export default function NameParticles({ isTouch }) {
                 depth[i] = 0.3 + Math.random() * 0.7;
             }
             size = step * 0.72;
-            radius = Math.max(70, W * 0.085);
-            depthShift = fs * 0.11;
+            radius = Math.max(70, W * M.radius);
+            fsNow = fs;
 
             canvas.width = Math.round(W * dpr);
             canvas.height = Math.round(H * dpr);
@@ -140,24 +145,26 @@ export default function NameParticles({ isTouch }) {
             // Les grains s'assemblent progressivement à la première apparition
             if (!revealedAt) revealedAt = now;
             const reveal = clamp((now - revealedAt) / 1600, 0, 1);
-            const k = 0.006 + 0.05 * reveal * reveal;
+            const k = 0.006 + M.spring * reveal * reveal;
 
             if (isTouch && now - lastMotion > 1500) {
                 // Pas de capteur : le relief respire doucement
-                tilt.x = Math.sin((now - start) / 1700) * 0.7;
-                tilt.y = Math.cos((now - start) / 2300) * 0.5;
+                tilt.x = Math.sin((now - start) / 1700) * M.idle;
+                tilt.y = Math.cos((now - start) / 2300) * M.idle * 0.7;
             }
-            tiltNow.x += (tilt.x - tiltNow.x) * 0.08;
-            tiltNow.y += (tilt.y - tiltNow.y) * 0.08;
+            tiltNow.x += (tilt.x - tiltNow.x) * M.tiltFollow;
+            tiltNow.y += (tilt.y - tiltNow.y) * M.tiltFollow;
 
             const R = radius;
             const R2 = R * R;
-            const ox = tiltNow.x * depthShift;
-            const oy = tiltNow.y * depthShift * 0.6;
+            // Glissement d'ensemble + léger décalage selon la profondeur du grain
+            const ox = tiltNow.x * fsNow;
+            const oy = tiltNow.y * fsNow * 0.6;
 
             for (let i = 0; i < n; i++) {
-                const tx = hx[i] + ox * depth[i];
-                const ty = hy[i] + oy * depth[i];
+                const shift = M.slide + M.depth * depth[i];
+                const tx = hx[i] + ox * shift;
+                const ty = hy[i] + oy * shift;
                 let ax = (tx - x[i]) * k;
                 let ay = (ty - y[i]) * k;
 
@@ -175,13 +182,15 @@ export default function NameParticles({ isTouch }) {
                     }
                 }
 
-                vx[i] = (vx[i] + ax) * 0.86;
-                vy[i] = (vy[i] + ay) * 0.86;
+                vx[i] = (vx[i] + ax) * M.damping;
+                vy[i] = (vy[i] + ay) * M.damping;
                 x[i] += vx[i];
                 y[i] += vy[i];
 
                 const disp = Math.abs(x[i] - tx) + Math.abs(y[i] - ty);
-                level[i] = Math.min(LEVELS - 1, (disp / 7) | 0);
+                // Les grains rapides s'allument aussi en orange (mobile)
+                const speed = Math.abs(vx[i]) + Math.abs(vy[i]);
+                level[i] = Math.min(LEVELS - 1, (disp / 7 + speed * M.speedGlow) | 0);
             }
         };
 
@@ -257,16 +266,16 @@ export default function NameParticles({ isTouch }) {
         const onOrientation = (e) => {
             if (e.gamma == null || e.beta == null) return;
             lastMotion = performance.now();
-            tilt.x = clamp(e.gamma / 30, -1, 1);
-            tilt.y = clamp((e.beta - 45) / 30, -1, 1);
+            tilt.x = clamp(e.gamma / M.sensitivity, -1.3, 1.3);
+            tilt.y = clamp((e.beta - 45) / M.sensitivity, -1.3, 1.3);
         };
         const onMotion = (e) => {
             const a = e.acceleration;
             if (!a || a.x == null) return;
             const now = performance.now();
-            if (Math.hypot(a.x, a.y, a.z) > 14 && now - lastShake > 600) {
+            if (Math.hypot(a.x, a.y, a.z) > M.shake && now - lastShake > 600) {
                 lastShake = now;
-                shockwave(W / 2, H / 2, 26);
+                shockwave(W / 2, H / 2, isTouch ? 34 : 26);
             }
         };
 
